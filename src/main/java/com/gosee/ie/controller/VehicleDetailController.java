@@ -58,4 +58,13 @@ public class VehicleDetailController {
         }
         return ResponseEntity.notFound().build();
     }
+
+    @GetMapping(value = "/category/{id}")
+    public ResponseEntity findVehicleByCategoryId(@PathVariable @Min(1) Long id) {
+        if (id != null) {
+
+        }
+        return null;
+    }
+
 }

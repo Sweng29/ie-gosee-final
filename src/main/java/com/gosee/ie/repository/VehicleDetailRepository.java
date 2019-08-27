@@ -23,4 +23,7 @@ public interface VehicleDetailRepository extends JpaRepository<VehicleDetail, Lo
     @Modifying
     @Query("update VehicleDetail v set v.isActive = 0 where v.isActive = ?1")
     public void deleteByIsActive(Long id);
+
+    @Query("Select v from VehicleDetail v where v.isActive = 1 and v.category")
+    public List<VehicleDetail> findAllByIsActiveAAndAndCategory_CategoryId(Long categoryId);
 }
