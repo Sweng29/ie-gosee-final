@@ -1,8 +1,11 @@
 package com.gosee.ie.dto;
 
+import javax.validation.constraints.NotEmpty;
+
 public class VehicleColorDTO {
 
     private String vehicleColorId;
+    @NotEmpty(message = "Color should not be empty.")
     private String vehicleColor;
     private VehicleDetailDTO vehicleDetailDTO;
 

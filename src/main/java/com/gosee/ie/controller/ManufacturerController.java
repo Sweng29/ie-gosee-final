@@ -41,7 +41,7 @@ public class ManufacturerController {
     public ResponseEntity updateManufacturer(@Valid @RequestBody Manufacturer manufacturer, @PathVariable @Min(1) Long id) throws ResourceNotFoundException {
 
         if (id != null) {
-            Manufacturer manufacturer1 = manufacturerService.findByIdIsActive(id).orElseThrow(() -> new ResourceNotFoundException("Category not found on :: " + id));
+            Manufacturer manufacturer1 = manufacturerService.findByIdIsActive(id).orElseThrow(() -> new ResourceNotFoundException("Manufacturer not found on :: " + id));
             manufacturer1 = manufacturer;
             manufacturer1.setIsActive((short) 1);
             manufacturer1.setManufacturerId(id);

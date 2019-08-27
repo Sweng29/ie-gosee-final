@@ -1,8 +1,11 @@
 package com.gosee.ie.dto;
 
+import javax.validation.constraints.NotEmpty;
+
 public class CategoryDTO {
 
     private String categoryId;
+    @NotEmpty(message = "Category name should not be empty.")
     private String categoryName;
     private VehicleDetailDTO vehicleDetailDTO;
 

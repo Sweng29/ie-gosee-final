@@ -1,8 +1,11 @@
 package com.gosee.ie.dto;
 
+import javax.validation.constraints.NotEmpty;
+
 public class FuelTypeDTO {
 
     private String fuelTypeId;
+    @NotEmpty(message = "Fuel type should not be empty.")
     private String fuelType;
     private VehicleDetailDTO vehicleDetailDTO;
 

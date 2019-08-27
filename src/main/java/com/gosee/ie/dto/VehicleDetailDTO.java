@@ -1,22 +1,40 @@
 package com.gosee.ie.dto;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 public class VehicleDetailDTO {
 
     private String vehicleDetailId;
+    @NotEmpty(message = "Vehicle name should not be empty.")
     private String vehicleName;
+    @NotNull(message = "Please select manufacturer.")
     private ManufacturerDTO manufacturerDTO;
+    @NotEmpty(message = "Registration no should not be empty.")
     private String registrationNo;
+    @NotEmpty(message = "Registration date should not be empty.")
     private String registrationDate;
+    @NotEmpty(message = "Engine no should not be empty.")
     private String engineNo;
+    @NotEmpty(message = "Chassis no should not be empty.")
     private String chassisNo;
+    @NotEmpty(message = "Category name should not be empty.")
     private String engineCapacity;
+    @NotEmpty(message = "Please select no of doors.")
     private String noOfDoors;
+    @NotNull(message = "Please select transmission type.")
     private TransmissionTypeDTO transmissionTypeDTO;
+    @NotNull(message = "Please select a category.")
     private CategoryDTO categoryDTO;
+    @NotNull(message = "Please select fuel type.")
     private FuelTypeDTO fuelTypeDTO;
+    @NotEmpty(message = "Mileage should not be empty.")
     private String mileage;
+    @NotNull(message = "Please select vehicle color.")
     private VehicleColorDTO vehicleColorDTO;
+    @NotEmpty(message = "Engine size should not be empty.")
     private String engineSize;
+    @NotEmpty(message = "Fuel economy should not be empty.")
     private String fuelEconomy;
 
     public String getVehicleDetailId() {
