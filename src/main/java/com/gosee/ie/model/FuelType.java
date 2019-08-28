@@ -1,5 +1,7 @@
 package com.gosee.ie.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
@@ -15,6 +17,7 @@ public class FuelType {
     @NotEmpty(message = "Fuel type should not be empty.")
     private String fuelType;
     @OneToOne(mappedBy = "fuelType")
+    @JsonIgnore
     private VehicleDetail vehicleDetail;
     @Min(1)
     private Short isActive;

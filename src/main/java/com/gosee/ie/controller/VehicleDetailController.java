@@ -1,14 +1,19 @@
 package com.gosee.ie.controller;
 
+import com.gosee.ie.dto.VehicleDetailDTO;
+import com.gosee.ie.dto.transformer.VehicleDetailTransformer;
 import com.gosee.ie.exception.ResourceNotFoundException;
 import com.gosee.ie.model.VehicleDetail;
 import com.gosee.ie.service.VehicleDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/vehicles")
@@ -17,8 +22,32 @@ public class VehicleDetailController {
     private VehicleDetailService vehicleDetailService;
 
     @GetMapping
+    public ModelAndView vehicleDetails() {
+        ModelAndView modelAndView = new ModelAndView("home");
+        List<VehicleDetail> vehicleDetailList = vehicleDetailService.findAllByIsActive();
+        if (vehicleDetailList != null) {
+            List<VehicleDetailDTO> vehicleDetailDTOList = new ArrayList<>();
+            for (VehicleDetail v : vehicleDetailList) {
+                VehicleDetailDTO vehicleDetailDTO = VehicleDetailTransformer.transform(v);
+                vehicleDetailDTOList.add(vehicleDetailDTO);
+            }
+            return modelAndView.addObject(vehicleDetailDTOList);
+        }
+        return modelAndView;
+    }
+
+    //@GetMapping
     public ResponseEntity findAllByIsActive() {
-        return ResponseEntity.ok().body(vehicleDetailService.findAllByIsActive());
+        List<VehicleDetail> vehicleDetailList = vehicleDetailService.findAllByIsActive();
+        if (vehicleDetailList != null) {
+            List<VehicleDetailDTO> vehicleDetailDTOList = new ArrayList<>();
+            for (VehicleDetail v : vehicleDetailList) {
+                VehicleDetailDTO vehicleDetailDTO = VehicleDetailTransformer.transform(v);
+                vehicleDetailDTOList.add(vehicleDetailDTO);
+            }
+            return ResponseEntity.ok().body(vehicleDetailDTOList);
+        }
+        return ResponseEntity.notFound().build();
     }
 
     @GetMapping(value = "/vehicle/{id}")
@@ -62,9 +91,10 @@ public class VehicleDetailController {
     @GetMapping(value = "/category/{id}")
     public ResponseEntity findVehicleByCategoryId(@PathVariable @Min(1) Long id) {
         if (id != null) {
-
+            List<VehicleDetail> vehicles = vehicleDetailService.findAllByCategoryId(id);
+            return ResponseEntity.ok().body(vehicles);
         }
-        return null;
+        return ResponseEntity.notFound().build();
     }
 
 }

@@ -1,7 +1,6 @@
 package com.gosee.ie.dto.transformer;
 
 import com.gosee.ie.dto.FuelTypeDTO;
-import com.gosee.ie.dto.VehicleDetailDTO;
 import com.gosee.ie.model.FuelType;
 
 public class FuelTypeTransformer {
@@ -14,10 +13,10 @@ public class FuelTypeTransformer {
         if (fuelType.getFuelType() != null) {
             fuelTypeDTO.setFuelType(fuelType.getFuelType());
         }
-        if (fuelType.getVehicleDetail() != null) {
+        /*if (fuelType.getVehicleDetail() != null) {
             VehicleDetailDTO vehicleDetailDTO = VehicleDetailTransformer.transform(fuelType.getVehicleDetail());
             fuelTypeDTO.setVehicleDetailDTO(vehicleDetailDTO);
-        }
+        }*/
         return fuelTypeDTO;
     }
 }

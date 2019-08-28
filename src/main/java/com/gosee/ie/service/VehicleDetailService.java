@@ -53,4 +53,8 @@ public class VehicleDetailService implements GenericDAO<VehicleDetail> {
         vehicleDetailRepository.deleteByIsActive(id);
         return true;
     }
+
+    public List<VehicleDetail> findAllByCategoryId(Long categoryId) {
+        return vehicleDetailRepository.findAllByCategoryId(categoryId);
+    }
 }

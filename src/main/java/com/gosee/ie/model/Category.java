@@ -1,8 +1,11 @@
 package com.gosee.ie.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import java.util.Set;
 
 @Entity
 @Table(name = "CATEGORY")
@@ -14,17 +17,18 @@ public class Category {
     private Long categoryId;
     @NotEmpty(message = "Category name should not be empty.")
     private String name;
-    @OneToOne(mappedBy = "category")
-    private VehicleDetail vehicleDetail;
+    @OneToMany(mappedBy = "category")
+    @JsonIgnore
+    private Set<VehicleDetail> vehicleDetails;
     @Min(1)
     private Short isActive;
 
-    public VehicleDetail getVehicleDetail() {
-        return vehicleDetail;
+    public Set<VehicleDetail> getVehicleDetails() {
+        return vehicleDetails;
     }
 
-    public void setVehicleDetail(VehicleDetail vehicleDetail) {
-        this.vehicleDetail = vehicleDetail;
+    public void setVehicleDetails(Set<VehicleDetail> vehicleDetails) {
+        this.vehicleDetails = vehicleDetails;
     }
 
     public Long getCategoryId() {

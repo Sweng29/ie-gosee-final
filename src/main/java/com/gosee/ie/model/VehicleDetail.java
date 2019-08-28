@@ -13,40 +13,55 @@ public class VehicleDetail {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "VEHICLE_DETAIL_ID")
     private Long vehicleDetailId;
+
     @NotEmpty(message = "Vehicle name should not be empty.")
     private String vehicleName;
-    @ManyToOne(fetch = FetchType.LAZY)
+
+    @ManyToOne
     @JoinColumn(name = "MANUFACTURER_ID")
     private Manufacturer manufacturer;
+
     @NotEmpty(message = "Registration number should not be empty.")
     private String registrationNo;
+
     private Date registrationDate;
+
     @NotEmpty(message = "Engine number should not be empty.")
     private String engineNo;
+
     @NotEmpty(message = "Chassis number should not be empty.")
     private String chassisNo;
+
     @NotEmpty(message = "Engine Capacity should not be empty.")
     private String engineCapacity;
+
     @NotEmpty(message = "No of doors should not be empty.")
     @Min(1)
     private Integer noOfDoors;
+
     @ManyToOne
-    @JoinColumn(name = "TRANSMITTION_ID")
+    @JoinColumn(name = "TRANSMISSION_TYPE_ID")
     private TransmissionType transmissionType;
-    @OneToOne
-    @JoinColumn(name = "CATEGORY_ID", referencedColumnName = "CATEGORY_ID")
+
+    @ManyToOne
+    @JoinColumn(name = "CATEGORY_ID")
     private Category category;
+
     @OneToOne
-    @JoinColumn(name = "FUEL_TYPE_ID", referencedColumnName = "FUEL_TYPE_ID")
+    @JoinColumn(name = "FUEL_TYPE_ID")
     private FuelType fuelType;
+
     @Min(value = 0, message = "Mileage should not be less then 0")
     private String mileage;
+
     @OneToOne
-    @JoinColumn(name = "VEHICLE_COLOR_ID", referencedColumnName = "VEHICLE_COLOR_ID")
+    @JoinColumn(name = "VEHICLE_COLOR_ID")
     private VehicleColor vehicleColor;
     private String engineSize;
+
     @NotEmpty(message = "Fuel Economy should not be empty.")
     private String fuelEconomy;
+
     @Min(1)
     private Short isActive;
 

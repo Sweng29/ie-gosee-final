@@ -14,19 +14,20 @@ public class VehicleColor {
     private Long vehicleColorId;
     @NotEmpty(message = "Color should not be empty.")
     private String colorName;
-    @OneToOne(mappedBy = "vehicleColor")
-    private VehicleDetail vehicleDetail;
+    /*    @OneToOne(mappedBy = "vehicleColor")
+        @JsonIgnore
+        private VehicleDetail vehicleDetail;*/
     @Min(1)
     private Short isActive;
 
-    public VehicleDetail getVehicleDetail() {
-        return vehicleDetail;
-    }
+    /* public VehicleDetail getVehicleDetail() {
+         return vehicleDetail;
+     }
 
-    public void setVehicleDetail(VehicleDetail vehicleDetail) {
-        this.vehicleDetail = vehicleDetail;
-    }
-
+     public void setVehicleDetail(VehicleDetail vehicleDetail) {
+         this.vehicleDetail = vehicleDetail;
+     }
+ */
     public Long getVehicleColorId() {
         return vehicleColorId;
     }
