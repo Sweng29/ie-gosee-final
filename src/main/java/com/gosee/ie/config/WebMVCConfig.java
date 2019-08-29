@@ -6,12 +6,10 @@ import nz.net.ultraq.thymeleaf.decorators.strategies.GroupingStrategy;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Description;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -27,8 +25,8 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
 
 import java.util.Locale;
 
-@Configuration
-@EnableWebMvc
+/*@Configuration
+@EnableWebMvc*/
 public class WebMVCConfig implements WebMvcConfigurer, ApplicationContextAware {
 
     private ApplicationContext applicationContext;
@@ -92,9 +90,10 @@ public class WebMVCConfig implements WebMvcConfigurer, ApplicationContextAware {
     private ITemplateResolver javascriptTemplateResolver() {
         SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
         resolver.setApplicationContext(applicationContext);
-        resolver.setPrefix("/WEB-INF/js/");
+        resolver.setPrefix("/static/js/");
         resolver.setCacheable(false);
         resolver.setTemplateMode(TemplateMode.JAVASCRIPT);
+        System.out.println(resolver.getPrefix() + resolver.getSuffix());
         return resolver;
     }
 

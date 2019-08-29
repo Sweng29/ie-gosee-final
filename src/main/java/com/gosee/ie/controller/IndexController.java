@@ -11,7 +11,8 @@ public class IndexController {
 
     @GetMapping
     public ModelAndView index() {
-        System.out.println("Index page loading...");
-        return new ModelAndView("home");
+        return new ModelAndView("admin/index");
     }
+
+
 }
