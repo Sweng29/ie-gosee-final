@@ -1,13 +1,12 @@
 package com.gosee.ie.config;
 
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /*@Configuration
 @EnableWebMvc*/
 public class WebMVCConfig extends WebMvcConfigurerAdapter {
 
-    @Override
+/*    @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler(
                 "/webjars/**",
@@ -22,6 +21,6 @@ public class WebMVCConfig extends WebMvcConfigurerAdapter {
                         "classpath:/static/admin/js/",
                         "classpath:/static/admin/vendor/"
                 );
-    }
+    }*/
 
 }
