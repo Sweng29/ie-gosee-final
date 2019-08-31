@@ -45,7 +45,7 @@
             <optional>true</optional>
         </dependency>
 
-        <!--Thymleaf dependencies-->
+<!--        &lt;!&ndash;Thymleaf dependencies&ndash;&gt;-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -65,21 +65,23 @@
             <artifactId>jstl</artifactId>
         </dependency>
 
-        <!-- Need this to compile JSP -->
+<!--
+        &lt;!&ndash; Need this to compile JSP &ndash;&gt;
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
             <scope>provided</scope>
         </dependency>
 
-        <!-- Need this to compile JSP,
-            tomcat-embed-jasper version is not working, no idea why -->
+        &lt;!&ndash; Need this to compile JSP,
+            tomcat-embed-jasper version is not working, no idea why &ndash;&gt;
         <dependency>
             <groupId>org.eclipse.jdt.core.compiler</groupId>
             <artifactId>ecj</artifactId>
             <version>4.6.1</version>
             <scope>provided</scope>
         </dependency>
+-->
 
 
         <!---->
