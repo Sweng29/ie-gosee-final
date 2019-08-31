@@ -13,38 +13,37 @@
     <title>Dashboard</title>
 
     <!-- Fontfaces CSS-->
-    <link media="all" rel="stylesheet" th:href="@{admin/css/font-face.css}">
-    <link media="all" rel="stylesheet" th:href="@{admin/css/font-face.css}">
+    <link media="all" rel="stylesheet" th:href="@{/admin/css/font-face.css}">
     <link media="all" rel="stylesheet"
-          th:href="@{admin/vendor/font-awesome-4.7/css/font-awesome.min.css}">
+          th:href="@{/admin/vendor/font-awesome-4.7/css/font-awesome.min.css}">
     <link media="all" rel="stylesheet"
-          th:href="@{admin/vendor/font-awesome-5/css/fontawesome-all.min.css}">
+          th:href="@{/admin/vendor/font-awesome-5/css/fontawesome-all.min.css}">
     <link media="all" rel="stylesheet"
-          th:href="@{admin/vendor/mdi-font/css/material-design-iconic-font.min.css}">
+          th:href="@{/admin/vendor/mdi-font/css/material-design-iconic-font.min.css}">
 
     <!-- Bootstrap CSS-->
     <link media="all" rel="stylesheet"
-          th:href="@{admin/vendor/mdi-font/css/material-design-iconic-font.min.css}">
+          th:href="@{/admin/vendor/mdi-font/css/material-design-iconic-font.min.css}">
 
     <!-- Vendor CSS-->
     <link media="all" rel="stylesheet"
-          th:href="@{admin/vendor/animsition/animsition.min.css}">
+          th:href="@{/admin/vendor/animsition/animsition.min.css}">
     <link media="all" rel="stylesheet"
-          th:href="@{admin/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css}">
+          th:href="@{/admin/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css}">
     <link media="all" rel="stylesheet"
-          th:href="@{admin/vendor/wow/animate.css}">
+          th:href="@{/admin/vendor/wow/animate.css}">
     <link media="all" rel="stylesheet"
-          th:href="@{admin/vendor/css-hamburgers/hamburgers.min.css}">
+          th:href="@{/admin/vendor/css-hamburgers/hamburgers.min.css}">
     <link media="all" rel="stylesheet"
-          th:href="@{admin/vendor/slick/slick.css}">
+          th:href="@{/admin/vendor/slick/slick.css}">
     <link media="all" rel="stylesheet"
-          th:href="@{admin/vendor/select2/select2.min.css}">
+          th:href="@{/admin/vendor/select2/select2.min.css}">
     <link media="all" rel="stylesheet"
-          th:href="@{admin/vendor/perfect-scrollbar/perfect-scrollbar.css}">
+          th:href="@{/admin/vendor/perfect-scrollbar/perfect-scrollbar.css}">
 
     <!-- Main CSS-->
     <link media="all" rel="stylesheet"
-          th:href="@{css/theme.css}">
+          th:href="@{/admin/css/theme.css}">
 
 </head>
 
@@ -56,7 +55,7 @@
             <div class="container-fluid">
                 <div class="header-mobile-inner">
                     <a class="logo" href="index.html">
-                        <img alt="CoolAdmin" th:src="@{images/icon/logo.png}"/>
+                        <img alt="CoolAdmin" th:src="@{/admin/images/icon/logo.png}"/>
                     </a>
                     <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -171,7 +170,7 @@
     <aside class="menu-sidebar d-none d-lg-block">
         <div class="logo">
             <a href="#">
-                <img alt="Cool Admin" src="../../../static/admin/images/icon/logo.png"/>
+                <img alt="Cool Admin" th:src="@{/admin/images/icon/logo.png}"/>
             </a>
         </div>
         <div class="menu-sidebar__content js-scrollbar1">
@@ -300,7 +299,7 @@
                                         </div>
                                         <div class="mess__item">
                                             <div class="image img-cir img-40">
-                                                <img alt="Michelle Moreno" src="../../../static/admin/images/icon/avatar-06.jpg"/>
+                                                <img alt="Michelle Moreno" th:src="@{/admin/images/icon/avatar-06.jpg}"/>
                                             </div>
                                             <div class="content">
                                                 <h6>Michelle Moreno</h6>
@@ -310,7 +309,7 @@
                                         </div>
                                         <div class="mess__item">
                                             <div class="image img-cir img-40">
-                                                <img alt="Diane Myers" src="../../../static/admin/images/icon/avatar-04.jpg"/>
+                                                <img alt="Diane Myers" th:src="@{/admin/images/icon/avatar-04.jpg}"/>
                                             </div>
                                             <div class="content">
                                                 <h6>Diane Myers</h6>
@@ -332,7 +331,7 @@
                                         </div>
                                         <div class="email__item">
                                             <div class="image img-cir img-40">
-                                                <img alt="Cynthia Harvey" src="../../../static/admin/images/icon/avatar-06.jpg"/>
+                                                <img alt="Cynthia Harvey" th:src="@{/admin/images/icon/avatar-06.jpg}"/>
                                             </div>
                                             <div class="content">
                                                 <p>Meeting about new dashboard...</p>
@@ -341,7 +340,7 @@
                                         </div>
                                         <div class="email__item">
                                             <div class="image img-cir img-40">
-                                                <img alt="Cynthia Harvey" src="../../../static/admin/images/icon/avatar-05.jpg"/>
+                                                <img alt="Cynthia Harvey" th:src="@{/admin/images/icon/avatar-05.jpg}"/>
                                             </div>
                                             <div class="content">
                                                 <p>Meeting about new dashboard...</p>
@@ -350,7 +349,7 @@
                                         </div>
                                         <div class="email__item">
                                             <div class="image img-cir img-40">
-                                                <img alt="Cynthia Harvey" src="../../../static/admin/images/icon/avatar-04.jpg"/>
+                                                <img alt="Cynthia Harvey" th:src="@{/admin/images/icon/avatar-04.jpg}"/>
                                             </div>
                                             <div class="content">
                                                 <p>Meeting about new dashboard...</p>
@@ -405,7 +404,7 @@
                             <div class="account-wrap">
                                 <div class="account-item clearfix js-item-menu">
                                     <div class="image">
-                                        <img alt="John Doe" src="../../../static/admin/images/icon/avatar-01.jpg"/>
+                                        <img alt="John Doe" th:src="@{/admin/images/icon/avatar-01.jpg}"/>
                                     </div>
                                     <div class="content">
                                         <a class="js-acc-btn" href="#">john doe</a>
@@ -414,7 +413,7 @@
                                         <div class="info clearfix">
                                             <div class="image">
                                                 <a href="#">
-                                                    <img alt="John Doe" src="../../../static/admin/images/icon/avatar-01.jpg"/>
+                                                    <img alt="John Doe" th:src="@{/admin/images/icon/avatar-01.jpg}"/>
                                                 </a>
                                             </div>
                                             <div class="content">
@@ -735,7 +734,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
-                                <div class="au-card-title" style="background-image:url('../../../static/admin/images/bg-title-01.jpg');">
+                                <div class="au-card-title" style="background-image:url('/admin/images/bg-title-01.jpg');">
                                     <div class="bg-overlay bg-overlay--blue"></div>
                                     <h3>
                                         <i class="zmdi zmdi-account-calendar"></i>26 April, 2018</h3>
@@ -805,7 +804,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
-                                <div class="au-card-title" style="background-image:url('../../../static/images/bg-title-02.jpg');">
+                                <div class="au-card-title" style="background-image:url('/admin/images/bg-title-02.jpg');">
                                     <div class="bg-overlay bg-overlay--blue"></div>
                                     <h3>
                                         <i class="zmdi zmdi-comment-text"></i>New Messages</h3>
@@ -828,7 +827,8 @@
                                                     <div class="au-message__item-text">
                                                         <div class="avatar-wrap">
                                                             <div class="avatar">
-                                                                <img alt="John Smith" src="../../../static/admin/images/icon/avatar-02.jpg">
+                                                                <img alt="John Smith"
+                                                                     th:src="@{/admin/images/icon/avatar-02.jpg}">
                                                             </div>
                                                         </div>
                                                         <div class="text">
@@ -847,7 +847,7 @@
                                                         <div class="avatar-wrap online">
                                                             <div class="avatar">
                                                                 <img alt="Nicholas Martinez"
-                                                                     src="../../../static/admin/images/icon/avatar-03.jpg">
+                                                                     th:src="@{/admin/images/icon/avatar-03.jpg}">
                                                             </div>
                                                         </div>
                                                         <div class="text">
@@ -866,7 +866,7 @@
                                                         <div class="avatar-wrap online">
                                                             <div class="avatar">
                                                                 <img alt="Michelle Sims"
-                                                                     src="../../../static/admin/images/icon/avatar-04.jpg">
+                                                                     th:src="@{/admin/images/icon/avatar-04.jpg}">
                                                             </div>
                                                         </div>
                                                         <div class="text">
@@ -885,7 +885,7 @@
                                                         <div class="avatar-wrap">
                                                             <div class="avatar">
                                                                 <img alt="Michelle Sims"
-                                                                     src="../../../static/admin/images/icon/avatar-05.jpg">
+                                                                     th:src="@{/admin/images/icon/avatar-05.jpg}">
                                                             </div>
                                                         </div>
                                                         <div class="text">
@@ -904,7 +904,7 @@
                                                         <div class="avatar-wrap online">
                                                             <div class="avatar">
                                                                 <img alt="Michelle Sims"
-                                                                     src="../../../static/admin/images/icon/avatar-04.jpg">
+                                                                     th:src="@{/admin/images/icon/avatar-04.jpg}">
                                                             </div>
                                                         </div>
                                                         <div class="text">
@@ -923,7 +923,7 @@
                                                         <div class="avatar-wrap">
                                                             <div class="avatar">
                                                                 <img alt="Michelle Sims"
-                                                                     src="../../../static/admin/images/icon/avatar-05.jpg">
+                                                                     th:src="@{/admin/images/icon/avatar-05.jpg}">
                                                             </div>
                                                         </div>
                                                         <div class="text">
@@ -946,7 +946,7 @@
                                             <div class="au-chat-info">
                                                 <div class="avatar-wrap online">
                                                     <div class="avatar avatar--small">
-                                                        <img alt="John Smith" src="../../../static/admin/images/icon/avatar-02.jpg">
+                                                        <img alt="John Smith" th:src="@{/admin/images/icon/avatar-02.jpg}">
                                                     </div>
                                                 </div>
                                                 <span class="nick">
@@ -959,7 +959,7 @@
                                                 <span class="mess-time">12 Min ago</span>
                                                 <div class="recei-mess__inner">
                                                     <div class="avatar avatar--tiny">
-                                                        <img alt="John Smith" src="../../../static/admin/images/icon/avatar-02.jpg">
+                                                        <img alt="John Smith" th:src="@{/admin/images/icon/avatar-02.jpg}">
                                                     </div>
                                                     <div class="recei-mess-list">
                                                         <div class="recei-mess">Lorem ipsum dolor sit amet, consectetur
@@ -1012,28 +1012,28 @@
 </div>
 
 <!-- Jquery JS-->
-<script th:src="@{admin//vendor/jquery-3.2.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/admin/vendor/jquery-3.2.1.min.js}"></script>
 <!-- Bootstrap JS-->
-<script th:src="@{admin/vendor/bootstrap-4.1/popper.min.js}"></script>
-<script th:src="@{admin/vendor/bootstrap-4.1/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/admin/vendor/bootstrap-4/popper.min.js}"></script>
+<script type="text/javascript" th:src="@{/admin/vendor/bootstrap-4/bootstrap.min.js}"></script>
 <!-- Vendor JS       -->
-<script th:src="@{admin/vendor/slick/slick.min.js}">
+<script type="text/javascript" th:src="@{/admin/vendor/slick/slick.min.js}">
 </script>
-<script th:src="@{admin/vendor/wow/wow.min.js}"></script>
-<script th:src="@{admin/vendor/animsition/animsition.min.js}"></script>
-<script th:src="@{admin/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js}">
+<script type="text/javascript" th:src="@{/admin/vendor/wow/wow.min.js}"></script>
+<script type="text/javascript" th:src="@{/admin/vendor/animsition/animsition.min.js}"></script>
+<script type="text/javascript" th:src="@{/admin/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js}">
 </script>
-<script th:src="@{admin/vendor/counter-up/jquery.waypoints.min.js}"></script>
-<script th:src="@{admin/vendor/counter-up/jquery.counterup.min.js}">
+<script type="text/javascript" th:src="@{/admin/vendor/counter-up/jquery.waypoints.min.js}"></script>
+<script type="text/javascript" th:src="@{/admin/vendor/counter-up/jquery.counterup.min.js}">
 </script>
-<script th:src="@{admin/vendor/circle-progress/circle-progress.min.js}"></script>
-<script th:src="@{admin/vendor/perfect-scrollbar/perfect-scrollbar.js}"></script>
-<script th:src="@{admin/vendor/chartjs/Chart.bundle.min.js}"></script>
-<script th:src="@{admin/vendor/select2/select2.min.js}">
+<script type="text/javascript" th:src="@{/admin/vendor/circle-progress/circle-progress.min.js}"></script>
+<script type="text/javascript" th:src="@{/admin/vendor/perfect-scrollbar/perfect-scrollbar.js}"></script>
+<script type="text/javascript" th:src="@{/admin/vendor/chartjs/Chart.bundle.min.js}"></script>
+<script type="text/javascript" th:src="@{/admin/vendor/select2/select2.min.js}">
 </script>
 
 <!-- Main JS-->
-<script th:src="@{admin/js/main.js}"></script>
+<script type="text/javascript" th:src="@{/admin/js/main.js}"></script>
 
 </body>
 

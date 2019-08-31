@@ -11,7 +11,7 @@ public class IndexController {
 
     @GetMapping
     public ModelAndView index() {
-        return new ModelAndView("home");
+        return new ModelAndView("admin/index");
     }
 
 
