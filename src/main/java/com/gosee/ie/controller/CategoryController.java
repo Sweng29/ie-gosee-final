@@ -11,7 +11,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.Min;
 
 @RestController
-@RequestMapping("/api/categories")
+@RequestMapping("/categories")
 public class CategoryController {
 
     @Autowired
@@ -57,6 +57,16 @@ public class CategoryController {
         if (id != null) {
             categoryService.deleteByIdIsActive(id);
             return ResponseEntity.ok().body("Record deleted successfully!");
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/category/{id}/subcategories")
+    public ResponseEntity findSubcategoriesByCategoryId(@PathVariable @Min(1) Long id)
+    {
+        if(id != null)
+        {
+            return ResponseEntity.ok().body(categoryService.findAllSubcategoriesByCategoryId(id));
         }
         return ResponseEntity.notFound().build();
     }

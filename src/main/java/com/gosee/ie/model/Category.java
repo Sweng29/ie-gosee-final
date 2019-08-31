@@ -20,8 +20,30 @@ public class Category {
     @OneToMany(mappedBy = "category")
     @JsonIgnore
     private Set<VehicleDetail> vehicleDetails;
+    @ManyToOne
+    @JoinColumn(name = "PARENT_CATEGORY")
+    @JsonIgnore
+    private Category parentCategory;
+    @OneToMany(mappedBy = "parentCategory",cascade = CascadeType.ALL)
+    private Set<Category> childCategories;
     @Min(1)
     private Short isActive;
+
+    public Category getParentCategory() {
+        return parentCategory;
+    }
+
+    public void setParentCategory(Category parentCategory) {
+        this.parentCategory = parentCategory;
+    }
+
+    public Set<Category> getChildCategories() {
+        return childCategories;
+    }
+
+    public void setChildCategories(Set<Category> childCategories) {
+        this.childCategories = childCategories;
+    }
 
     public Set<VehicleDetail> getVehicleDetails() {
         return vehicleDetails;

@@ -53,4 +53,14 @@ public class CategoryService implements GenericDAO<Category> {
         categoryRepository.deleteByIsActive(id);
         return true;
     }
+
+    public List<Category> findAllSubcategoriesByCategoryId(Long categoryId)
+    {
+       return categoryRepository.findAllSubcategoriesByCategoryId(categoryId);
+    }
+
+    public List<Category> findAllParentCategoriesByIsActive()
+    {
+        return categoryRepository.findAllParentCategoriesByIsActive();
+    }
 }

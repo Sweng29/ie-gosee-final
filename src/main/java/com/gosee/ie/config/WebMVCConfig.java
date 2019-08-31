@@ -33,8 +33,8 @@ public class WebMVCConfig extends WebMvcConfigurerAdapter {
                         "classpath:/static/gosee/css/",
                         "classpath:/static/gosee/fonts/",
                         "classpath:/static/gosee/img/",
-                        "classpath:/static/gosee/js/"
-
+                        "classpath:/static/gosee/js/",
+                        "classpath:/static/gosee/img/logos/"
                 );
     }
 

@@ -24,4 +24,9 @@ public interface CategoryRepository extends JpaRepository<Category, Long> {
     @Query("update Category c set c.isActive = 0 where c.categoryId = ?1")
     public void deleteByIsActive(Long id);
 
+    @Query("select c from Category c where c.categoryId = ?1 and c.isActive=1")
+    public List<Category> findAllSubcategoriesByCategoryId(Long categoryId);
+    @Query("select c from Category c where c.parentCategory is null and c.isActive=1")
+    public List<Category> findAllParentCategoriesByIsActive();
+
 }

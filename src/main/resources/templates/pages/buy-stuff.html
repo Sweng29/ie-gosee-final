@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Buy Stuff</title>
+</head>
+<body>
+    <div class="form-group blu-margin">
+        <select class="form-control" th:field="${categories}"  id="categories" th:onchange="'javascript:addCategories()'">
+            <option value="0">select Category</option>
+            <option th:each="category : ${categories}" th:value="${category.categoryId}" th:text="${category.name}" ></option>
+        </select>
+    </div>
+    <script type="text/javascript" th:src="@{/admin/vendor/jquery-3.2.1.min.js}"></script>
+    <script type="text/javascript">
+        var categoryList = [];
+
+        function addCategories() {
+            alert("hello");
+            categoryList.push($('#categories option:selected').val());
+            console.log($('#categories option:selected').val());
+        }
+
+
+        $(document).ready(
+            function () {
+                /*$.fn.addCategories = function () {
+                    // blah
+                    console.log($('#categories option:selected').val());
+                };*/
+            }
+        );
+    </script>
+</body>
+</html>
