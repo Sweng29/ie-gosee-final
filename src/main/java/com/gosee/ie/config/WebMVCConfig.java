@@ -22,7 +22,10 @@ public class WebMVCConfig extends WebMvcConfigurerAdapter {
                 "/gosee/css/**",
                 "/gosee/fonts/**",
                 "/gosee/img/**",
-                "/gosee/js/**")
+                "/gosee/js/**",
+                "/gosee/customjs/**",
+                "/gosee/img/logos/",
+                "/resources/images/**")
                 .addResourceLocations(
                         "classpath:/static/admin/images/",
                         "classpath:/static/admin/css/",
@@ -34,7 +37,9 @@ public class WebMVCConfig extends WebMvcConfigurerAdapter {
                         "classpath:/static/gosee/fonts/",
                         "classpath:/static/gosee/img/",
                         "classpath:/static/gosee/js/",
-                        "classpath:/static/gosee/img/logos/"
+                        "classpath:/static/gosee/img/logos/",
+                        "classpath:/static/gosee/customjs/",
+                        "file:/uploads/"
                 );
     }
 

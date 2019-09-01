@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Categories</title>
+</head>
+<body>
+    <p th:value="${imagePath.toString()}"></p>
+    <img th:src="${'/resources/images/'+imagePath.toString()}" th:value="${imagePath.toString()}" >
+</body>
+</html>
