@@ -54,6 +54,7 @@ public class CategoryController {
             category.setIsActive((short) 1);
             category.setFileUpload(fileUpload);
             categoryService.saveOrUpdate(category);
+            category.setImageFile(null);
             return ResponseEntity.ok().body(category);
         }
         return ResponseEntity.badRequest().build();
