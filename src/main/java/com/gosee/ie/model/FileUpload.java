@@ -1,30 +1,45 @@
 package com.gosee.ie.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
-import java.util.Arrays;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "FILES")
-public class FileUpload {
+public class FileUpload implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "FILE_UPLOAD_ID")
     private Long fileUploadId;
     private String fileName;
     private String fileType;
-    @Lob
-    private byte[] data;
+    /*    @Lob
+        @JsonIgnore
+        private byte[] data;*/
     private String filePath;
+    @JsonIgnore
+    @OneToOne(mappedBy = "fileUpload")
+    private Category category;
 
 
-    public FileUpload(String fileName, String contentType, byte[] bytes,String filePath) {
+    public FileUpload(String fileName, String contentType, String filePath) {
         this.fileName = fileName;
         this.fileType = contentType;
-        this.data = bytes;
+        /*this.data = bytes;*/
         this.filePath = filePath;
     }
 
     public FileUpload(){}
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     public String getFilePath() {
         return filePath;
@@ -58,13 +73,13 @@ public class FileUpload {
         this.fileType = fileType;
     }
 
-    public byte[] getData() {
+/*    public byte[] getData() {
         return data;
     }
 
     public void setData(byte[] data) {
         this.data = data;
-    }
+    }*/
 
     @Override
     public String toString() {
@@ -72,7 +87,6 @@ public class FileUpload {
                 "fileUploadId=" + fileUploadId +
                 ", fileName='" + fileName + '\'' +
                 ", fileType='" + fileType + '\'' +
-                ", data=" + Arrays.toString(data) +
                 ", filePath='" + filePath + '\'' +
                 '}';
     }

@@ -2,10 +2,13 @@ package com.gosee.ie.controller;
 
 import com.gosee.ie.exception.ResourceNotFoundException;
 import com.gosee.ie.model.Category;
+import com.gosee.ie.model.FileUpload;
 import com.gosee.ie.service.CategoryService;
+import com.gosee.ie.service.FileUploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
@@ -16,6 +19,8 @@ public class CategoryController {
 
     @Autowired
     private CategoryService categoryService;
+    @Autowired
+    private FileUploadService fileUploadService;
 
     @GetMapping
     public ResponseEntity findAllByIsActive() {
@@ -31,10 +36,27 @@ public class CategoryController {
         return ResponseEntity.notFound().build();
     }
 
-    @PostMapping
+    /*@PostMapping*/
     public ResponseEntity saveCategory(@Valid @RequestBody Category category) {
         category.setIsActive((short) 1);
         return ResponseEntity.ok().body(categoryService.saveOrUpdate(category));
+    }
+
+    @PostMapping
+    public ResponseEntity saveCategoryWithImage(@ModelAttribute Category category) {
+        if (category.getImageFile() != null) {
+            FileUpload fileUpload = fileUploadService.storeFile(category.getImageFile());
+            String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+                    .path("/downloadFile/")
+                    .path(fileUpload.getFileUploadId().toString())
+                    .toUriString();
+
+            category.setIsActive((short) 1);
+            category.setFileUpload(fileUpload);
+            categoryService.saveOrUpdate(category);
+            return ResponseEntity.ok().body(category);
+        }
+        return ResponseEntity.badRequest().build();
     }
 
     @PutMapping("/category/{id}")

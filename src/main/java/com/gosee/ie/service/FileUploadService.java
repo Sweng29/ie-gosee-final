@@ -88,8 +88,7 @@ public class FileUploadService implements GenericDAO<FileUpload> {
                 throw new FileStorageException("Sorry! Filename contains invalid path sequence " + fileName);
             }
             fileName = UUID.randomUUID()+"."+fileName.substring(fileName.lastIndexOf('.')+1);
-            FileUpload fileUpload = new FileUpload(fileName,file.getContentType(),file.getBytes(),this.fileStorageLocation.toString()+"\\"+fileName);
-            System.out.println(fileName);
+            FileUpload fileUpload = new FileUpload(fileName, file.getContentType(), this.fileStorageLocation.toString() + "\\" + fileName);
             fileUploadRepository.save(fileUpload);
             // Copy file to the target location (Replacing existing file with the same name)
             Path targetLocation = this.fileStorageLocation.resolve(fileName);
