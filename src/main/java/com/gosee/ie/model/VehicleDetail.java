@@ -1,9 +1,11 @@
 package com.gosee.ie.model;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
-import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "VEHICLE_DETAIL")
@@ -24,7 +26,7 @@ public class VehicleDetail {
     @NotEmpty(message = "Registration number should not be empty.")
     private String registrationNo;
 
-    private Date registrationDate;
+    private String registrationDate;
 
     @NotEmpty(message = "Engine number should not be empty.")
     private String engineNo;
@@ -37,7 +39,7 @@ public class VehicleDetail {
 
     @NotEmpty(message = "No of doors should not be empty.")
     @Min(1)
-    private Integer noOfDoors;
+    private String noOfDoors;
 
     @ManyToOne
     @JoinColumn(name = "TRANSMISSION_TYPE_ID")
@@ -61,9 +63,30 @@ public class VehicleDetail {
 
     @NotEmpty(message = "Fuel Economy should not be empty.")
     private String fuelEconomy;
+    @OneToMany(mappedBy = "vehicleDetail", cascade = CascadeType.ALL)
+    private Set<FileUpload> fileUpload;
+
+    @Transient
+    private MultipartFile[] imageFiles;
 
     @Min(1)
     private Short isActive;
+
+    public Set<FileUpload> getFileUpload() {
+        return fileUpload;
+    }
+
+    public void setFileUpload(Set<FileUpload> fileUpload) {
+        this.fileUpload = fileUpload;
+    }
+
+    public MultipartFile[] getImageFiles() {
+        return imageFiles;
+    }
+
+    public void setImageFiles(MultipartFile[] imageFiles) {
+        this.imageFiles = imageFiles;
+    }
 
     public Short getIsActive() {
         return isActive;
@@ -129,11 +152,11 @@ public class VehicleDetail {
         this.registrationNo = registrationNo;
     }
 
-    public Date getRegistrationDate() {
+    public String getRegistrationDate() {
         return registrationDate;
     }
 
-    public void setRegistrationDate(Date registrationDate) {
+    public void setRegistrationDate(String registrationDate) {
         this.registrationDate = registrationDate;
     }
 
@@ -161,11 +184,11 @@ public class VehicleDetail {
         this.engineCapacity = engineCapacity;
     }
 
-    public Integer getNoOfDoors() {
+    public String getNoOfDoors() {
         return noOfDoors;
     }
 
-    public void setNoOfDoors(Integer noOfDoors) {
+    public void setNoOfDoors(String noOfDoors) {
         this.noOfDoors = noOfDoors;
     }
 

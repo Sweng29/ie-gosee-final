@@ -22,6 +22,9 @@ public class FileUpload implements Serializable {
     @JsonIgnore
     @OneToOne(mappedBy = "fileUpload")
     private Category category;
+    @ManyToOne
+    @JoinColumn(name = "VEHICLE_DETAIL_ID")
+    private VehicleDetail vehicleDetail;
 
 
     public FileUpload(String fileName, String contentType, String filePath) {
@@ -32,6 +35,14 @@ public class FileUpload implements Serializable {
     }
 
     public FileUpload(){}
+
+    public VehicleDetail getVehicleDetail() {
+        return vehicleDetail;
+    }
+
+    public void setVehicleDetail(VehicleDetail vehicleDetail) {
+        this.vehicleDetail = vehicleDetail;
+    }
 
     public Category getCategory() {
         return category;

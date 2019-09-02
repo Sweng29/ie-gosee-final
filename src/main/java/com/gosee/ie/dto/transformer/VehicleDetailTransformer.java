@@ -1,7 +1,11 @@
 package com.gosee.ie.dto.transformer;
 
 import com.gosee.ie.dto.*;
+import com.gosee.ie.model.FileUpload;
 import com.gosee.ie.model.VehicleDetail;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class VehicleDetailTransformer {
 
@@ -59,6 +63,14 @@ public class VehicleDetailTransformer {
         }
         if (vehicleDetail.getVehicleName() != null) {
             vehicleDetailDTO.setVehicleName(vehicleDetail.getVehicleName());
+        }
+        if (vehicleDetail.getFileUpload() != null) {
+            Set<FileUploadDTO> images = new HashSet<>();
+            for (FileUpload fileUpload : vehicleDetail.getFileUpload()) {
+                FileUploadDTO fileUploadDTO = FileUploadTransformer.transform(fileUpload);
+                images.add(fileUploadDTO);
+            }
+            vehicleDetailDTO.setImages(images);
         }
         return vehicleDetailDTO;
     }

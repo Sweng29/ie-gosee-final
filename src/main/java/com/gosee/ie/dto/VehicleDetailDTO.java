@@ -2,6 +2,7 @@ package com.gosee.ie.dto;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 public class VehicleDetailDTO {
 
@@ -36,6 +37,15 @@ public class VehicleDetailDTO {
     private String engineSize;
     @NotEmpty(message = "Fuel economy should not be empty.")
     private String fuelEconomy;
+    private Set<FileUploadDTO> images;
+
+    public Set<FileUploadDTO> getImages() {
+        return images;
+    }
+
+    public void setImages(Set<FileUploadDTO> images) {
+        this.images = images;
+    }
 
     public String getVehicleDetailId() {
         return vehicleDetailId;

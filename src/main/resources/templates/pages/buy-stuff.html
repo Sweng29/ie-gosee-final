@@ -220,7 +220,7 @@
 
             <div class="col-lg-3 col-md-6 col-sm-6" th:each="category:${categories}">
                 <div class="shop-box">
-                    <img alt="img" class="shop-theme img-fluid" src="img/shop/img.jpg"
+                    <img alt="img" class="shop-theme img-fluid"
                          th:src="${'/resources/images/'+category.fileUpload?.fileName}">
                     <div class="shop-details">
                         <a class="btn btn-warning btn-lg" href="#" role="button" th:value="${category.categoryId}"
@@ -228,6 +228,7 @@
                     </div>
                 </div>
             </div>
+
 
         </div>
     </div>

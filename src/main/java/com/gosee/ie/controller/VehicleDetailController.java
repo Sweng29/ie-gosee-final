@@ -3,25 +3,33 @@ package com.gosee.ie.controller;
 import com.gosee.ie.dto.VehicleDetailDTO;
 import com.gosee.ie.dto.transformer.VehicleDetailTransformer;
 import com.gosee.ie.exception.ResourceNotFoundException;
+import com.gosee.ie.model.FileUpload;
 import com.gosee.ie.model.VehicleDetail;
+import com.gosee.ie.service.FileUploadService;
 import com.gosee.ie.service.VehicleDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping(value = "/api/vehicles")
 public class VehicleDetailController {
     @Autowired
     private VehicleDetailService vehicleDetailService;
+    @Autowired
+    private FileUploadService fileUploadService;
 
-    @GetMapping
+    //@GetMapping
     public ModelAndView vehicleDetails() {
         ModelAndView modelAndView = new ModelAndView("home");
         List<VehicleDetail> vehicleDetailList = vehicleDetailService.findAllByIsActive();
@@ -36,7 +44,7 @@ public class VehicleDetailController {
         return modelAndView;
     }
 
-    //@GetMapping
+    @GetMapping
     public ResponseEntity findAllByIsActive() {
         List<VehicleDetail> vehicleDetailList = vehicleDetailService.findAllByIsActive();
         if (vehicleDetailList != null) {
@@ -60,13 +68,30 @@ public class VehicleDetailController {
     }
 
     @PostMapping
-    public ResponseEntity saveVehicleColor(@Valid @RequestBody VehicleDetail vehicleDetail) {
+    public ResponseEntity saveVehicleDetail(@Valid @ModelAttribute VehicleDetail vehicleDetail) {
+        Set<FileUpload> images = new HashSet<>();
         vehicleDetail.setIsActive((short) 1);
+        vehicleDetail.setFileUpload(images);
+        /*        VehicleDetail v = vehicleDetailService.saveOrUpdate(vehicleDetail);*/
+
+        if (vehicleDetail.getImageFiles() != null) {
+            for (MultipartFile multipartFile : vehicleDetail.getImageFiles()) {
+                FileUpload fileUpload = fileUploadService.storeFile(multipartFile);
+                String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+                        .path("/downloadFile/")
+                        .path(fileUpload.getFileUploadId().toString())
+                        .toUriString();
+                images.add(fileUpload);
+            }
+            vehicleDetailService.saveOrUpdate(vehicleDetail);
+            vehicleDetail.setImageFiles(null);
+            return ResponseEntity.ok().body(vehicleDetail);
+        }
         return ResponseEntity.ok().body(vehicleDetailService.saveOrUpdate(vehicleDetail));
     }
 
     @PutMapping("/vehicle/{id}")
-    public ResponseEntity updateVehicleColor(@Valid @RequestBody VehicleDetail vehicleDetail, @PathVariable @Min(1) Long id) throws ResourceNotFoundException {
+    public ResponseEntity updateVehicleDetail(@Valid @RequestBody VehicleDetail vehicleDetail, @PathVariable @Min(1) Long id) throws ResourceNotFoundException {
 
         if (id != null) {
             VehicleDetail vehicleDetail1 = vehicleDetailService.findByIdIsActive(id).orElseThrow(() -> new ResourceNotFoundException("Vehicle details not found on :: " + id));
