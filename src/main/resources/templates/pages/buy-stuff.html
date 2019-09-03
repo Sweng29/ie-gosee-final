@@ -80,7 +80,8 @@
                         </div>
                     </div>
                 </div>
-
+            </div>
+            <div class="row">
                 <div class="col-lg-4 col-md-4 col-xs-4" th:each="vehicle:${vehiclesList}">
                     <div class="car-details-section">
                         <div class="carousel car-details-sliders slide mb-40" id="carDetailsSlider">
@@ -101,6 +102,12 @@
                                                  th:src="${'/resources/images/'+image.fileName}">
                                         </a>
                                     </li>
+                                    <li class="list-inline-item">
+                                        <a data-slide-to="1" data-target="#carDetailsSlider" id="carousel-selector-1">
+                                            <img alt="small-photo" class="img-fluid"
+                                                 th:src="${'/resources/images/'+image.fileName}">
+                                        </a>
+                                    </li>
                                 </ul>
                             </span>
                             <div class="heading-car-2">
@@ -112,7 +119,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
