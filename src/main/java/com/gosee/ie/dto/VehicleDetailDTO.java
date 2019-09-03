@@ -174,4 +174,27 @@ public class VehicleDetailDTO {
     public void setFuelEconomy(String fuelEconomy) {
         this.fuelEconomy = fuelEconomy;
     }
+
+    @Override
+    public String toString() {
+        return "VehicleDetailDTO{" +
+                "vehicleDetailId='" + vehicleDetailId + '\'' +
+                ", vehicleName='" + vehicleName + '\'' +
+                ", manufacturerDTO=" + manufacturerDTO +
+                ", registrationNo='" + registrationNo + '\'' +
+                ", registrationDate='" + registrationDate + '\'' +
+                ", engineNo='" + engineNo + '\'' +
+                ", chassisNo='" + chassisNo + '\'' +
+                ", engineCapacity='" + engineCapacity + '\'' +
+                ", noOfDoors='" + noOfDoors + '\'' +
+                ", transmissionTypeDTO=" + transmissionTypeDTO +
+                ", categoryDTO=" + categoryDTO +
+                ", fuelTypeDTO=" + fuelTypeDTO +
+                ", mileage='" + mileage + '\'' +
+                ", vehicleColorDTO=" + vehicleColorDTO +
+                ", engineSize='" + engineSize + '\'' +
+                ", fuelEconomy='" + fuelEconomy + '\'' +
+                ", images=" + images +
+                '}';
+    }
 }

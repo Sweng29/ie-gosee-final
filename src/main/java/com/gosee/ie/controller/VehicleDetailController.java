@@ -9,6 +9,7 @@ import com.gosee.ie.service.FileUploadService;
 import com.gosee.ie.service.VehicleDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,7 +23,7 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
-@RequestMapping(value = "/api/vehicles")
+@RequestMapping(value = "/vehicles")
 public class VehicleDetailController {
     @Autowired
     private VehicleDetailService vehicleDetailService;
@@ -114,12 +115,12 @@ public class VehicleDetailController {
     }
 
     @GetMapping(value = "/category/{id}")
-    public ResponseEntity findVehicleByCategoryId(@PathVariable @Min(1) Long id) {
+    public Model findVehicleByCategoryId(@PathVariable @Min(1) Long id, Model model) {
         if (id != null) {
             List<VehicleDetail> vehicles = vehicleDetailService.findAllByCategoryId(id);
-            return ResponseEntity.ok().body(vehicles);
+            return model.addAttribute("vehiclesList", vehicles);
         }
-        return ResponseEntity.notFound().build();
+        return model.addAttribute("vehiclesList", null);
     }
 
 }

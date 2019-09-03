@@ -7,7 +7,8 @@
             <img alt="img" class="shop-theme img-fluid"
                  th:src="${'/resources/images/'+category.fileUpload?.fileName}">
             <div class="shop-details">
-                <a class="btn btn-warning btn-lg" href="#" role="button" th:text="${category.name}"
+                <a class="btn btn-warning btn-lg" role="button"
+                   th:href="${'/buy-stuff/vehicles-list/'+category.categoryId}" th:text="${category.name}"
                    th:value="${category.categoryId}"></a>
             </div>
         </div>

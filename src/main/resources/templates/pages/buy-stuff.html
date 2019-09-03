@@ -47,6 +47,78 @@
     </div>
 </div>
 <!-- Categories end -->
+<!--th:src="${'/resources/images/'+category.fileUpload?.fileName}"-->
+<!-- Featured car start -->
+<div th:if="${vehiclesList!=null and !vehiclesList.empty}">
+    <div class="featured-car content-area-15">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4" th:each="vehicle:${vehiclesList}">
+                    <div class="car-box-3">
+                        <div class="car-thumbnail">
+                            <a class="car-img" href="car-details.html" th:each="image,index : ${vehicle.images}">
+                                <span th:if="${index.count==1}">
+                                    <img alt="car"
+                                         class="d-block w-100"
+                                         th:src="${'/resources/images/'+image.fileName}">
+                                </span>
+                            </a>
+                        </div>
+                        <div class="detail">
+                            <h1 class="title">
+                                <a href="#">Toyota Prius specs</a>
+                            </h1>
+                            <h4>Price: $9000.00</h4>
+                            <div class="ratings">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <span>(4)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-xs-4" th:each="vehicle:${vehiclesList}">
+                    <div class="car-details-section">
+                        <div class="carousel car-details-sliders slide mb-40" id="carDetailsSlider">
+                            <span th:each="image,index : ${vehicle.images}">
+                                <!-- main slider carousel items -->
+                                <div class="carousel-inner">
+                                    <div class="item carousel-item active" data-slide-number="1">
+                                        <img alt="slider-photo" class="img-fluid"
+                                             th:src="${'/resources/images/'+image.fileName}">
+                                    </div>
+                                </div>
+                                <!-- main slider carousel nav controls -->
+                                <ul class="carousel-indicators car-properties list-inline nav nav-justified">
+                                    <li class="list-inline-item">
+                                        <a class="selected" data-slide-to="0" data-target="#carDetailsSlider"
+                                           id="carousel-selector-0">
+                                            <img alt="small-photo" class="img-fluid"
+                                                 th:src="${'/resources/images/'+image.fileName}">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </span>
+                            <div class="heading-car-2">
+                                <h3>Car Rims</h3>
+                                <div class="price-location"><span class="car-price">$178,000</span> <span class="rent">For Sale</span>
+                                    <span class="location"><i class="flaticon-pin"></i>123 Kathal St. Tampa City,</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Featured car end -->
+
 <!--FOOTER START-->
 <div th:replace="footer :: footer"></div>
 <!--FOOTER END-->
