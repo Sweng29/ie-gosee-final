@@ -5,6 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import java.math.BigDecimal;
 import java.util.Set;
 
 @Entity
@@ -74,6 +75,16 @@ public class VehicleDetail {
 
     public Set<FileUpload> getFileUpload() {
         return fileUpload;
+    }
+
+    private BigDecimal price;
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 
     public void setFileUpload(Set<FileUpload> fileUpload) {

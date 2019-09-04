@@ -64,6 +64,9 @@ public class VehicleDetailTransformer {
         if (vehicleDetail.getVehicleName() != null) {
             vehicleDetailDTO.setVehicleName(vehicleDetail.getVehicleName());
         }
+        if (vehicleDetail.getPrice() != null) {
+            vehicleDetailDTO.setPrice(String.valueOf(vehicleDetail.getPrice()));
+        }
         if (vehicleDetail.getFileUpload() != null) {
             Set<FileUploadDTO> images = new HashSet<>();
             for (FileUpload fileUpload : vehicleDetail.getFileUpload()) {

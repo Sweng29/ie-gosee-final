@@ -1,8 +1,12 @@
 .custom-heading {
     width: 93%;
     left: 14px;
+    margin-top: 145px;
 }
 
+.heading-car-2 {
+    padding: 0px 12px;
+}
 .custom-img {
     margin-left: 5px;
     width: 85%;

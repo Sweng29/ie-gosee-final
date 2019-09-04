@@ -38,6 +38,15 @@ public class VehicleDetailDTO {
     @NotEmpty(message = "Fuel economy should not be empty.")
     private String fuelEconomy;
     private Set<FileUploadDTO> images;
+    private String price;
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
 
     public Set<FileUploadDTO> getImages() {
         return images;
@@ -195,6 +204,7 @@ public class VehicleDetailDTO {
                 ", engineSize='" + engineSize + '\'' +
                 ", fuelEconomy='" + fuelEconomy + '\'' +
                 ", images=" + images +
+                ", price='" + price + '\'' +
                 '}';
     }
 }
