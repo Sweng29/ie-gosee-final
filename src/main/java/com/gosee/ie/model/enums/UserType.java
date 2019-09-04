@@ -1,4 +1,4 @@
-package com.gosee.ie.model;
+package com.gosee.ie.model.enums;
 
 public enum UserType {
     ADMIN,

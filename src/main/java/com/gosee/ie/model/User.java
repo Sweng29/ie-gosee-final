@@ -1,5 +1,7 @@
 package com.gosee.ie.model;
 
+import com.gosee.ie.model.enums.UserType;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
