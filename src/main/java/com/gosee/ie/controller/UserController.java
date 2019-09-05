@@ -1,15 +1,22 @@
 package com.gosee.ie.controller;
 
+import com.gosee.ie.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
+import com.gosee.ie.model.User;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 @Controller
 public class UserController {
+
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(value={"/","/login"},method = RequestMethod.GET)
     public ModelAndView index(){
@@ -19,8 +26,6 @@ public class UserController {
     @RequestMapping(value="/index", method = RequestMethod.GET)
     public ModelAndView defaultAccess(HttpServletRequest request){
         ModelAndView modelAndView = new ModelAndView();
-
-        System.out.println("Hello");
 
         if(request.isUserInRole("ROLE_SELLER")) {
             modelAndView.setViewName("/seller/home");
@@ -41,8 +46,19 @@ public class UserController {
         return modelAndView;
     }
 
-    @GetMapping("/signup")
+
+    @RequestMapping(value= "/signup", method = RequestMethod.GET)
     public ModelAndView signUp() {
-        return new ModelAndView("signup");
+        ModelAndView modelAndView = new ModelAndView("signup");
+        modelAndView.addObject("user",new User());
+        return modelAndView;
     }
+
+    @RequestMapping(value= "/signup", method = RequestMethod.POST)
+    public String userRegisteration(@Valid User user, BindingResult bindingResult){
+        userService.register(user);
+        return "redirect:/";
+    }
+
+
 }

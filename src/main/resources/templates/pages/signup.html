@@ -27,18 +27,21 @@
                         <!-- Name -->
                         <h3>Create an account</h3>
                         <!-- Form start-->
-                        <form action="http://storage.googleapis.com/themevessel-products/cmart/index.html" method="GET">
+                        <form method="POST" th:action="@{/signup}" th:object="${user}">
                             <div class="form-group">
-                                <input type="text" name="fullname" class="input-text" placeholder="Full Name">
+                                <input type="text" name="fullname" class="input-text" placeholder="Full Name" th:field="*{firstName}">
                             </div>
                             <div class="form-group">
-                                <input type="email" name="email" class="input-text" placeholder="Email Address">
+                                <input type="text" name="fullname" class="input-text" placeholder="Full Name" th:field="*{lastName}">
                             </div>
                             <div class="form-group">
-                                <input type="password" name="password" class="input-text" placeholder="Password">
+                                <input type="email" name="email" class="input-text" placeholder="Email Address" th:field="*{email}">
                             </div>
                             <div class="form-group">
-                                <input type="password" name="confirm_Password" class="input-text" placeholder="Confirm Password">
+                                <input type="password" name="password" class="input-text" placeholder="Password" th:field="*{password}">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="contact" class="input-text" placeholder="Contact" th:field="*{contactNo}">
                             </div>
                             <div class="form-group mb-0">
                                 <button type="submit" class="btn-md button-theme btn-block">Signup</button>

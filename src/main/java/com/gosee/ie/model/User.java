@@ -16,18 +16,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long userId;
     @NotNull(message = "First name should not be empty.")
-    @Min(3)
     private String firstName;
     private String lastName;
     @Email
     @NotNull(message = "Email address should not be empty.")
     private String email;
     @NotNull(message = "Password should not be empty.")
-    @Min(6)
+
     private String password;
     @NotNull(message = "Please enter a valid contact no.")
     private String contactNo;
-
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
