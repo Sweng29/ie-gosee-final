@@ -19,13 +19,13 @@ import java.util.Map;
 public class EmailController {
 
     @Autowired
-    private JavaMailSender sender;
+    private JavaMailSender sender; // you must enable properties file settings otherwise comment email-starter pkg in pom
     @Autowired
     private Configuration freemarkerConfig;
 
     @RequestMapping("/sendMail")
     @ResponseBody
-    public ModelAndView home() {
+    public ModelAndView sendMail() {
         try {
             sendEmail();
             ModelAndView modelAndView = new ModelAndView("success-email");
