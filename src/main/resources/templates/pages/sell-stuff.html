@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sell Stuff || GOSEE</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="utf-8">
+    <!--Include CSS and JS-->
+    <div th:replace="includes-head :: includes-head"></div>
+    <!--ENd of Includes-->
+</head>
+<body>
+<div class="page_loader"></div>
+
+<!-- Main header start -->
+<div th:replace="header :: header"></div>
+<!-- Main header end -->
+
+<!-- Sub banner start -->
+<div class="sub-banner">
+    <div class="container breadcrumb-area">
+        <div class="breadcrumb-areas">
+            <h1>Buy Stuff</h1>
+            <ul class="breadcrumbs">
+                <li><a href="/home">Home</a></li>
+                <li class="active">Buy Stuff</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Sub Banner end -->
+
+
+<!-- Shop list start -->
+<div class="shop-list content-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="heading-4">
+                    <h4 class="text-center">Choose Vehicle</h4>
+                </div>
+            </div>
+            <!--CATEGORIES START-->
+            <div th:replace="categories :: categories"></div>
+            <!--CATEGORIES END-->
+        </div>
+    </div>
+</div>
+<!-- Categories end -->
+<!--th:src="${'/resources/images/'+category.fileUpload?.fileName}"-->
+<!-- Featured car start -->
+<div th:if="${vehiclesList!=null and !vehiclesList.empty}">
+    <div class="featured-car content-area-15">
+        <div class="container">
+            <div class="row">
+                <div class="carousel car-details-sliders slide mb-40 col-md-4 col-sm-4 col-lg-4"
+                     th:each="vehicle,ind:${vehiclesList}" th:id="${'carDetailsSlider'+ind.count}">
+                    <!-- main slider carousel items -->
+                    <div class="carousel-inner">
+                        <div th:attr="data-slide-number=${index.count}"
+                             th:class="${index.first}? 'active item carousel-item': 'item carousel-item'"
+                             th:each="image,index : ${vehicle.images}">
+                            <img alt="slider-photo" class="img-fluid" th:src="${'/resources/images/'+image.fileName}">
+                        </div>
+                    </div>
+                    <!-- main slider carousel nav controls -->
+                    <!--<ul class="carousel-indicators car-properties list-inline nav nav-justified">
+                        <li class="list-inline-item active">
+                            <a class="selected" data-slide-to="0" data-target="#carDetailsSlider"
+                               id="carousel-selector-0">
+                                <img alt="small-photo" class="img-fluid custom-img"
+                                     th:src="@{/gosee/img/shop/img-2.jpg}">
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a data-slide-to="1" data-target="#carDetailsSlider" id="carousel-selector-1">
+                                <img alt="small-photo" class="img-fluid" th:src="@{/gosee/img/shop/img.jpg}">
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a data-slide-to="2" data-target="#carDetailsSlider" id="carousel-selector-2">
+                                <img alt="small-photo" class="img-fluid" th:src="@{/gosee/img/shop/img-3.jpg}">
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a data-slide-to="3" data-target="#carDetailsSlider" id="carousel-selector-3">
+                                <img alt="small-photo" class="img-fluid" th:src="@{/gosee/img/shop/img-4.jpg}">
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a data-slide-to="4" data-target="#carDetailsSlider" id="carousel-selector-4">
+                                <img alt="small-photo" class="img-fluid" th:src="@{/gosee/img/shop/img-5.jpg}">
+                            </a>
+                        </li>
+                    </ul>-->
+                    <!--<div class="heading-car-2 custom-heading">
+                        <h3 th:text="${vehicle.vehicleName}"></h3>
+                        <div class="price-location">
+                            <span class="car-price" th:text="${'Engine Capacity : '+vehicle.engineCapacity}"></span>
+                            <br/>
+                            <span class="car-price" th:text="${'Price : '+vehicle.price+'$'}"></span>
+                            <span class="rent">For Sale</span>
+                            <span class="location">
+
+                            </span>
+                        </div>
+                    </div>-->
+                    <div class="shop-box">
+                        <img alt="img" class="shop-theme img-fluid" src="img/shop/img.jpg">
+                        <div class="shop-details">
+                            <h4>$178,000</h4>
+                            <h3><a href="shop-details.html">Brakes</a></h3>
+                            <a class="btn btn-border btn-sm" href="shop-cart.html" role="button">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Featured car end -->
+
+<!--FOOTER START-->
+<div th:replace="footer :: footer"></div>
+<!--FOOTER END-->
+
+</body>
+</html>
