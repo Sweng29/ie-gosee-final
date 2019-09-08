@@ -1,14 +1,14 @@
 package com.gosee.ie.controller;
 
+import com.gosee.ie.model.User;
 import com.gosee.ie.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import com.gosee.ie.model.User;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -23,12 +23,17 @@ public class UserController {
         return new ModelAndView("/login");
     }
 
+    /*@RequestMapping(value={"/","/login"},method = RequestMethod.POST)
+    public ModelAndView login(){
+        return new ModelAndView("/login");
+    }*/
+
     @RequestMapping(value="/index", method = RequestMethod.GET)
     public ModelAndView defaultAccess(HttpServletRequest request){
         ModelAndView modelAndView = new ModelAndView();
 
         if(request.isUserInRole("ROLE_SELLER")) {
-            modelAndView.setViewName("/seller/home");
+            modelAndView.setViewName("/buy-stuff");
         }
         else if(request.isUserInRole("ROLE_BUYER")) {
             modelAndView.setViewName("/buyer/home");

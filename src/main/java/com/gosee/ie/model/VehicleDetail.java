@@ -1,16 +1,20 @@
 package com.gosee.ie.model;
 
+import com.gosee.ie.model.enums.CurrencyType;
+import com.gosee.ie.model.enums.MileageUnit;
+import com.gosee.ie.model.enums.VehicleCondition;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Set;
 
 @Entity
 @Table(name = "VEHICLE_DETAIL")
-public class VehicleDetail {
+public class VehicleDetail implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -50,14 +54,11 @@ public class VehicleDetail {
     @JoinColumn(name = "CATEGORY_ID")
     private Category category;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "FUEL_TYPE_ID")
     private FuelType fuelType;
 
-    @Min(value = 0, message = "Mileage should not be less then 0")
-    private String mileage;
-
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "VEHICLE_COLOR_ID")
     private VehicleColor vehicleColor;
     private String engineSize;
@@ -73,11 +74,74 @@ public class VehicleDetail {
     @Min(1)
     private Short isActive;
 
+    private String modelYear;
+
+    @ManyToOne
+    @JoinColumn(name = "BODY_TYPE_ID")
+    private BodyType bodyType;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "Currency")
+    private CurrencyType currencyType;
+    @Enumerated(EnumType.STRING)
+    private VehicleCondition vehicleCondition;
+    private BigDecimal price;
+    @Enumerated(EnumType.STRING)
+    private MileageUnit mileageUnit;
+    private String miles;
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getMiles() {
+        return miles;
+    }
+
+    public void setMiles(String miles) {
+        this.miles = miles;
+    }
+
+    public CurrencyType getCurrencyType() {
+        return currencyType;
+    }
+
+    public void setCurrencyType(CurrencyType currencyType) {
+        this.currencyType = currencyType;
+    }
+
+    public VehicleCondition getVehicleCondition() {
+        return vehicleCondition;
+    }
+
+    public void setVehicleCondition(VehicleCondition vehicleCondition) {
+        this.vehicleCondition = vehicleCondition;
+    }
+
+    public BodyType getBodyType() {
+        return bodyType;
+    }
+
+    public void setBodyType(BodyType bodyType) {
+        this.bodyType = bodyType;
+    }
+
+    public String getModelYear() {
+        return modelYear;
+    }
+
+    public void setModelYear(String modelYear) {
+        this.modelYear = modelYear;
+    }
+
     public Set<FileUpload> getFileUpload() {
         return fileUpload;
     }
-
-    private BigDecimal price;
 
     public BigDecimal getPrice() {
         return price;
@@ -227,11 +291,11 @@ public class VehicleDetail {
         this.fuelType = fuelType;
     }
 
-    public String getMileage() {
-        return mileage;
+    public MileageUnit getMileageUnit() {
+        return mileageUnit;
     }
 
-    public void setMileage(String mileage) {
-        this.mileage = mileage;
+    public void setMileageUnit(MileageUnit mileageUnit) {
+        this.mileageUnit = mileageUnit;
     }
 }

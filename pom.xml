@@ -61,11 +61,13 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
+
 
         <!--        &lt;!&ndash;Thymleaf dependencies&ndash;&gt;-->
 
@@ -93,23 +95,22 @@
             <optional>true</optional>
         </dependency>
 
-<!--
-        &lt;!&ndash; Need this to compile JSP &ndash;&gt;
+
+        <!--        &lt;!&ndash; Need this to compile JSP &ndash;&gt;-->
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
             <scope>provided</scope>
         </dependency>
 
-        &lt;!&ndash; Need this to compile JSP,
-            tomcat-embed-jasper version is not working, no idea why &ndash;&gt;
+        <!--        &lt;!&ndash; Need this to compile JSP,
+                    tomcat-embed-jasper version is not working, no idea why &ndash;&gt;-->
         <dependency>
             <groupId>org.eclipse.jdt.core.compiler</groupId>
             <artifactId>ecj</artifactId>
             <version>4.6.1</version>
             <scope>provided</scope>
         </dependency>
--->
 
 
         <!---->
@@ -119,16 +120,16 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-            <version>5.1.6.RELEASE</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
+        <!--        <dependency>
+                    <groupId>org.springframework.security</groupId>
+                    <artifactId>spring-security-core</artifactId>
+                    <version>5.1.6.RELEASE</version>
+                    <scope>compile</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-security</artifactId>
+                </dependency>-->
     </dependencies>
 
     <build>

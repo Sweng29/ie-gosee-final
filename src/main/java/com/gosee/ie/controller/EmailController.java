@@ -1,24 +1,11 @@
 package com.gosee.ie.controller;
 
-import freemarker.template.Configuration;
-import freemarker.template.Template;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-
-import javax.mail.internet.MimeMessage;
-import java.util.HashMap;
-import java.util.Map;
 
 @Controller
 public class EmailController {
 
-    @Autowired
+/*    @Autowired
     private JavaMailSender sender; // you must enable properties file settings otherwise comment email-starter pkg in pom
     @Autowired
     private Configuration freemarkerConfig;
@@ -55,5 +42,5 @@ public class EmailController {
         helper.setText(text, true); // set to html
         helper.setSubject("Hi");
         sender.send(message);
-    }
+    }*/
 }

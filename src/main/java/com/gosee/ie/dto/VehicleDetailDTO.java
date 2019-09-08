@@ -39,6 +39,51 @@ public class VehicleDetailDTO {
     private String fuelEconomy;
     private Set<FileUploadDTO> images;
     private String price;
+    private String modelYear;
+    private String bodyType;
+    private String CurrencyType;
+    private String vehicleCondition;
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getCurrencyType() {
+        return CurrencyType;
+    }
+
+    public void setCurrencyType(String currencyType) {
+        CurrencyType = currencyType;
+    }
+
+    public String getVehicleCondition() {
+        return vehicleCondition;
+    }
+
+    public void setVehicleCondition(String vehicleCondition) {
+        this.vehicleCondition = vehicleCondition;
+    }
+
+    public String getModelYear() {
+        return modelYear;
+    }
+
+    public void setModelYear(String modelYear) {
+        this.modelYear = modelYear;
+    }
+
+    public String getBodyType() {
+        return bodyType;
+    }
+
+    public void setBodyType(String bodyType) {
+        this.bodyType = bodyType;
+    }
 
     public String getPrice() {
         return price;

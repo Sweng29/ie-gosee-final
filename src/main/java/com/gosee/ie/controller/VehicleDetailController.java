@@ -60,12 +60,26 @@ public class VehicleDetailController {
     }
 
     @GetMapping(value = "/vehicle/{id}")
-    public ResponseEntity<VehicleDetail> findByIdAndIsActive(@PathVariable @Min(1) Long id) throws ResourceNotFoundException {
+    public ModelAndView findByIdAndIsActive(@PathVariable @Min(1) Long id) throws ResourceNotFoundException {
+        ModelAndView modelAndView = new ModelAndView("vehicle-details");
         if (id != null) {
             VehicleDetail vehicleDetail = vehicleDetailService.findByIdIsActive(id).orElseThrow(() -> new ResourceNotFoundException("Vehicle details not found on :: " + id));
-            return ResponseEntity.ok().body(vehicleDetail);
+            VehicleDetailDTO vehicleDetailDTO = VehicleDetailTransformer.transform(vehicleDetail);
+            modelAndView.addObject("vehicleDetail", vehicleDetailDTO);
+            return modelAndView;
         }
-        return ResponseEntity.notFound().build();
+        modelAndView.addObject("vehicleDetail", "null");
+        return modelAndView;
+    }
+
+    //@GetMapping(value = "/vehicle/{id}")
+    public ResponseEntity findByIdAndIsActiv(@PathVariable @Min(1) Long id) throws ResourceNotFoundException {
+        if (id != null) {
+            VehicleDetail vehicleDetail = vehicleDetailService.findByIdIsActive(id).orElseThrow(() -> new ResourceNotFoundException("Vehicle details not found on :: " + id));
+            VehicleDetailDTO vehicleDetailDTO = VehicleDetailTransformer.transform(vehicleDetail);
+            return ResponseEntity.ok().body(vehicleDetailDTO);
+        }
+        return ResponseEntity.badRequest().build();
     }
 
     @PostMapping

@@ -38,14 +38,14 @@ public class VehicleDetailTransformer {
             ManufacturerDTO manufacturerDTO = ManufacturerTransformer.transform(vehicleDetail.getManufacturer());
             vehicleDetailDTO.setManufacturerDTO(manufacturerDTO);
         }
-        if (vehicleDetail.getMileage() != null) {
-            vehicleDetailDTO.setMileage(vehicleDetail.getMileage());
+        if (vehicleDetail.getMileageUnit() != null && vehicleDetail.getMiles() != null) {
+            vehicleDetailDTO.setMileage(vehicleDetail.getMiles() + " " + vehicleDetail.getMileageUnit().toString());
         }
         if (vehicleDetail.getNoOfDoors() != null) {
-            vehicleDetailDTO.setNoOfDoors(String.valueOf(vehicleDetail.getNoOfDoors()));
+            vehicleDetailDTO.setNoOfDoors(vehicleDetail.getNoOfDoors());
         }
         if (vehicleDetail.getRegistrationDate() != null) {
-            vehicleDetailDTO.setRegistrationDate(String.valueOf(vehicleDetail.getRegistrationDate()));
+            vehicleDetailDTO.setRegistrationDate(vehicleDetail.getRegistrationDate());
         }
         if (vehicleDetail.getRegistrationNo() != null) {
             vehicleDetailDTO.setRegistrationNo(vehicleDetail.getRegistrationNo());
@@ -74,6 +74,21 @@ public class VehicleDetailTransformer {
                 images.add(fileUploadDTO);
             }
             vehicleDetailDTO.setImages(images);
+        }
+        if (vehicleDetail.getBodyType() != null) {
+            vehicleDetailDTO.setBodyType(vehicleDetail.getBodyType().getName());
+        }
+        if (vehicleDetail.getModelYear() != null) {
+            vehicleDetailDTO.setModelYear(vehicleDetail.getModelYear());
+        }
+        if (vehicleDetail.getCurrencyType() != null) {
+            vehicleDetailDTO.setCurrencyType(vehicleDetail.getCurrencyType().toString());
+        }
+        if (vehicleDetail.getVehicleCondition() != null) {
+            vehicleDetailDTO.setVehicleCondition(vehicleDetail.getVehicleCondition().toString());
+        }
+        if (vehicleDetail.getDescription() != null) {
+            vehicleDetailDTO.setDescription(vehicleDetail.getDescription());
         }
         return vehicleDetailDTO;
     }

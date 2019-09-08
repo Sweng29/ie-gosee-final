@@ -1,41 +1,350 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <title>Vehicle Details</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="utf-8">
+    <!--Include CSS and JS-->
+    <div th:replace="includes-head :: includes-head"></div>
+    <!--ENd of Includes-->
 </head>
 <body>
 
-<!-- Featured car start -->
-<div class="featured-car content-area-15">
+<div class="page_loader"></div>
+
+<!-- Main header start -->
+<div th:replace="header :: header"></div>
+<!-- Main header end -->
+
+<!-- Sub banner start -->
+<div class="sub-banner">
+    <div class="container breadcrumb-area">
+        <div class="breadcrumb-areas">
+            <h1>Vehicle Details</h1>
+            <ul class="breadcrumbs">
+                <li><a href="/home">Home</a></li>
+                <li class="active">Vehicle Details</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Sub Banner end -->
+
+
+<!-- Car details page start -->
+<div class="car-details-page content-area">
     <div class="container">
         <div class="row">
-            <div class="col-lg-5 col-md-5">
-                <div class="car-box-3">
+            <div class="col-lg-8 col-md-12 col-xs-12">
+                <div class="car-details-section"
+                     th:if="${vehicleDetail!=null and vehicleDetail.images!=null and !vehicleDetail.images.empty}">
+                    <div class="carousel car-details-sliders slide slide-2" id="carDetailsSlider">
+                        <!-- main slider carousel items -->
+                        <div class="carousel-inner">
+                            <div class="active item carousel-item" th:attr="data-slide-number=${index.count}"
+                                 th:each="image,index : ${vehicleDetail.images}" th:if="${index.count==0}">
+                                <img alt="slider-car" class="img-fluid" th:src="${'/resources/images/'+image.fileName}">
+                            </div>
+                            <div class="item carousel-item" th:attr="data-slide-number=${index.count}"
+                                 th:each="image,index : ${vehicleDetail.images}" th:if="${index.count>0}">
+                                <img alt="slider-car" class="img-fluid" th:src="${'/resources/images/'+image.fileName}">
+                            </div>
+                        </div>
+                        <!-- main slider carousel nav controls -->
+                        <ul class="carousel-indicators car-properties list-inline nav nav-justified">
+                            <li class="list-inline-item active" th:each="image,index : ${vehicleDetail.images}"
+                                th:if="${index.count==0}">
+                                <a class="selected" data-target="#carDetailsSlider"
+                                   th:attr="data-slide-to=${index.count}"
+                                   th:id="${'carousel-selector-0'}">
+                                    <img alt="small-car" class="img-fluid"
+                                         th:src="${'/resources/images/'+image.fileName}">
+                                </a>
+                            </li>
+                            <li class="list-inline-item" th:each="image,index : ${vehicleDetail.images}"
+                                th:if="${index.count>0}">
+                                <a data-target="#carDetailsSlider" th:attr="data-slide-to=${index.count}"
+                                   th:id="${'carousel-selector-'+index.count}">
+                                    <img alt="small-car" class="img-fluid"
+                                         th:src="${'/resources/images/'+image.fileName}">
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="heading-car-2">
+                            <h3 th:text="${vehicleDetail.vehicleName}"></h3>
+                            <div class="price-location"><span class="car-price"
+                                                              th:text="${'$'+vehicleDetail.price}"></span> <span
+                                    class="rent">For Sale</span> <span class="location"><i class="flaticon-pin"></i>123 Kathal St. Tampa City,</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Advanced search start -->
+                    <div class="widget-2 advanced-search bg-grea-2 d-lg-none d-xl-none" th:if="${vehicleDetail!=null}">
+                        <h3 class="sidebar-title">SPECIFICATIONS</h3>
+                        <ul>
+                            <li>
+                                <span>Make</span><i th:text="${vehicleDetail.manufacturerDTO?.manufacturerName}"></i>
+                            </li>
+                            <li>
+                                <span>Model</span><i th:text="${vehicleDetail.vehicleName}"></i>
+                            </li>
+                            <li>
+                                <span>Year</span><i th:text="${vehicleDetail.modelYear}"></i>
+                            </li>
+                            <li>
+                                <span>Engine Capacity</span><i th:text="${vehicleDetail.engineCapacity}"></i>
+                            </li>
+                            <li>
+                                <span>Engine No</span><i th:text="${vehicleDetail.engineNo}"></i>
+                            </li>
+                            <li>
+                                <span>Registration Date</span><i th:text="${vehicleDetail.registrationDate}"></i>
+                            </li>
+                            <li>
+                                <span>Registration No</span><i th:text="${vehicleDetail.registrationNo}"></i>
+                            </li>
+                            <li>
+                                <span>Condition</span><i th:text="${vehicleDetail.vehicleCondition}"></i>
+                            </li>
+                            <li>
+                                <span>Mileage</span><i th:text="${vehicleDetail.mileage}"></i>
+                            </li>
+                            <li>
+                                <span>Vehicle Color</span><i
+                                    th:text="${vehicleDetail.vehicleColorDTO.vehicleColor}"></i>
+                            </li>
+                            <li>
+                                <span>Transmission Type</span><i
+                                    th:text="${vehicleDetail.transmissionTypeDTO.transmissionType}"></i>
+                            </li>
+                            <li>
+                                <span>Engine</span><i th:text="${vehicleDetail.engineSize}"></i>
+                            </li>
+                            <li>
+                                <span>No. of Doors </span><i th:text="${vehicleDetail.noOfDoors}"></i>
+                            </li>
+                            <li>
+                                <span>Fuel Economy </span><i th:text="${vehicleDetail.fuelEconomy}"></i>
+                            </li>
+                            <li>
+                                <span>Fuel Type</span><i th:text="${vehicleDetail.fuelTypeDTO.fuelType}"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Description start -->
+                    <div class="Description mb-50">
+                        <h3 class="heading-2">Description</h3>
+                        <p th:text="${vehicleDetail.description}"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="sidebar-right">
+                    <!-- Advanced search start -->
+                    <div class="widget advanced-search d-none d-xl-block d-lg-block">
+                        <h3 class="sidebar-title">SPECIFICATIONS</h3>
+                        <ul>
+                            <li>
+                                <span>Make</span><i th:text="${vehicleDetail.manufacturerDTO?.manufacturerName}"></i>
+                            </li>
+                            <li>
+                                <span>Model</span><i th:text="${vehicleDetail.vehicleName}"></i>
+                            </li>
+                            <li>
+                                <span>Year</span><i th:text="${vehicleDetail.modelYear}"></i>
+                            </li>
+                            <li>
+                                <span>Engine Capacity</span><i th:text="${vehicleDetail.engineCapacity}"></i>
+                            </li>
+                            <li>
+                                <span>Engine No</span><i th:text="${vehicleDetail.engineNo}"></i>
+                            </li>
+                            <li>
+                                <span>Registration Date</span><i th:text="${vehicleDetail.registrationDate}"></i>
+                            </li>
+                            <li>
+                                <span>Registration No</span><i th:text="${vehicleDetail.registrationNo}"></i>
+                            </li>
+                            <li>
+                                <span>Condition</span><i th:text="${vehicleDetail.vehicleCondition}"></i>
+                            </li>
+                            <li>
+                                <span>Mileage</span><i th:text="${vehicleDetail.mileage}"></i>
+                            </li>
+                            <li>
+                                <span>Vehicle Color</span><i
+                                    th:text="${vehicleDetail.vehicleColorDTO.vehicleColor}"></i>
+                            </li>
+                            <li>
+                                <span>Transmission Type</span><i
+                                    th:text="${vehicleDetail.transmissionTypeDTO.transmissionType}"></i>
+                            </li>
+                            <li>
+                                <span>Engine</span><i th:text="${vehicleDetail.engineSize}"></i>
+                            </li>
+                            <li>
+                                <span>No. of Doors </span><i th:text="${vehicleDetail.noOfDoors}"></i>
+                            </li>
+                            <li>
+                                <span>Fuel Economy </span><i th:text="${vehicleDetail.fuelEconomy}"></i>
+                            </li>
+                            <li>
+                                <span>Fuel Type</span><i th:text="${vehicleDetail.fuelTypeDTO.fuelType}"></i>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <!-- Social sinks start -->
+                    <div class="widget social-links">
+                        <h3 class="sidebar-title">Social Links</h3>
+                        <ul class="social-list clearfix">
+                            <li><a class="facebook-bg" href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a class="twitter-bg" href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a class="google-bg" href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a class="linkedin-bg" href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a class="pinterest-bg" href="#"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="heading-2">Related Cars</h3>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="car-box">
                     <div class="car-thumbnail">
                         <a class="car-img" href="car-details.html">
-                            <img alt="car" class="d-block w-100" src="img/car/car-4.jpg">
+                            <div class="tag">Featured</div>
+                            <div class="price-box">$850.00</div>
+                            <img alt="car" class="d-block w-100" th:src="@{/gosee/img/car/car-1.jpg}">
                         </a>
                     </div>
                     <div class="detail">
                         <h1 class="title">
-                            <a href="#">Toyota Prius specs</a>
+                            <a href="car-grid-rightside.html">Toyota Prius</a>
                         </h1>
-                        <h4>Price: $9000.00</h4>
-                        <div class="ratings">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                            <span>(4)</span>
+                        <div class="location">
+                            <a href="car-details.html">
+                                <i class="flaticon-pin"></i>123 Kathal St. Tampa City,
+                            </a>
                         </div>
+                        <ul class="facilities-list clearfix">
+                            <li>
+                                <i class="flaticon-way"></i> 4,000 km
+                            </li>
+                            <li>
+                                <i class="flaticon-manual-transmission"></i> Manual
+                            </li>
+                            <li>
+                                <i class="flaticon-calendar-1"></i> 2019
+                            </li>
+                            <li>
+                                <i class="flaticon-fuel"></i> Petrol
+                            </li>
+                            <li>
+                                <i class="flaticon-car"></i> Sport
+                            </li>
+                            <li>
+                                <i class="flaticon-gear"></i> Blue
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="car-box">
+                    <div class="car-thumbnail">
+                        <a class="car-img" href="car-details.html">
+                            <div class="tag">Featured</div>
+                            <div class="price-box">$850.00</div>
+                            <img alt="car" class="d-block w-100" th:src="@{/gosee/img/car/car-4.jpg}">
+                        </a>
+                    </div>
+                    <div class="detail">
+                        <h1 class="title">
+                            <a href="car-grid-rightside.html">Toyota Prius specs</a>
+                        </h1>
+                        <div class="location">
+                            <a href="car-details.html">
+                                <i class="flaticon-pin"></i>123 Kathal St. Tampa City,
+                            </a>
+                        </div>
+                        <ul class="facilities-list clearfix">
+                            <li>
+                                <i class="flaticon-way"></i> 4,000 km
+                            </li>
+                            <li>
+                                <i class="flaticon-manual-transmission"></i> Manual
+                            </li>
+                            <li>
+                                <i class="flaticon-calendar-1"></i> 2019
+                            </li>
+                            <li>
+                                <i class="flaticon-fuel"></i> Petrol
+                            </li>
+                            <li>
+                                <i class="flaticon-car"></i> Sport
+                            </li>
+                            <li>
+                                <i class="flaticon-gear"></i> Blue
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 d-none-992">
+                <div class="car-box">
+                    <div class="car-thumbnail">
+                        <a class="car-img" href="car-details.html">
+                            <div class="tag">Featured</div>
+                            <div class="price-box">$850.00</div>
+                            <img alt="car" class="d-block w-100" th:src="@{/gosee/img/car/car-3.jpg}">
+                        </a>
+                    </div>
+                    <div class="detail">
+                        <h1 class="title">
+                            <a href="car-grid-rightside.html">Lexus GS F</a>
+                        </h1>
+                        <div class="location">
+                            <a href="car-details.html">
+                                <i class="flaticon-pin"></i>123 Kathal St. Tampa City,
+                            </a>
+                        </div>
+                        <ul class="facilities-list clearfix">
+                            <li>
+                                <i class="flaticon-way"></i> 4,000 km
+                            </li>
+                            <li>
+                                <i class="flaticon-manual-transmission"></i> Manual
+                            </li>
+                            <li>
+                                <i class="flaticon-calendar-1"></i> 2019
+                            </li>
+                            <li>
+                                <i class="flaticon-fuel"></i> Petrol
+                            </li>
+                            <li>
+                                <i class="flaticon-car"></i> Sport
+                            </li>
+                            <li>
+                                <i class="flaticon-gear"></i> Blue
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Featured car end -->
+<!-- Properties details page end -->
+
+<!--FOOTER START-->
+<div th:replace="footer :: footer"></div>
+<!--FOOTER END-->
 
 </body>
 </html>

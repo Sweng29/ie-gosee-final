@@ -11,7 +11,7 @@ import javax.validation.constraints.NotEmpty;
 public class FuelType {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "FUEL_TYPE_ID")
     private Long fuelTypeId;
     @NotEmpty(message = "Fuel type should not be empty.")

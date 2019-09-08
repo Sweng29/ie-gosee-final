@@ -106,11 +106,22 @@
                         </div>
                     </div>-->
                     <div class="shop-box">
-                        <img alt="img" class="shop-theme img-fluid" src="img/shop/img.jpg">
+                        <div class="carousel-inner">
+                            <div th:attr="data-slide-number=${index.count}"
+                                 th:class="${index.first}? 'active item carousel-item': 'item carousel-item'"
+                                 th:each="image,index : ${vehicle.images}">
+                                <img alt="slider-photo" class="img-fluid" th:if="${index.count==0}"
+                                     th:src="${'/resources/images/'+image.fileName}">
+                            </div>
+                        </div>
                         <div class="shop-details">
-                            <h4>$178,000</h4>
-                            <h3><a href="shop-details.html">Brakes</a></h3>
-                            <a class="btn btn-border btn-sm" href="shop-cart.html" role="button">Add to Cart</a>
+                            <h4 th:text="${vehicle.vehicleName}"></h4>
+                            <h4 th:text="${'Engine Capacity : '+vehicle.engineCapacity}"></h4>
+                            <h4 th:text="${'Color : '+vehicle.vehicleColorDTO.vehicleColor}"></h4>
+                            <h4 th:text="${'Price : '+vehicle.price}"></h4>
+                            <!--<h3><a href="" ></a></h3>-->
+                            <a class="btn btn-border btn-sm" role="button"
+                               th:href="${'/vehicles/vehicle/'+vehicle.vehicleDetailId}">View Details</a>
                         </div>
                     </div>
                 </div>
