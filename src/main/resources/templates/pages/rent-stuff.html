@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rent Stuff || GOSEE</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="utf-8">
+    <!--Include CSS and JS-->
+    <div th:replace="includes-head :: includes-head"></div>
+    <!--ENd of Includes-->
+</head>
+<body>
+<div class="page_loader"></div>
+
+<!-- Main header start -->
+<div th:replace="header :: header"></div>
+<!-- Main header end -->
+
+<!-- Sub banner start -->
+<div class="sub-banner">
+    <div class="container breadcrumb-area">
+        <div class="breadcrumb-areas">
+            <h1>Sell Stuff</h1>
+            <ul class="breadcrumbs">
+                <li><a href="/home">Home</a></li>
+                <li class="active">Sell Stuff</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Sub Banner end -->
+
+<!--FOOTER START-->
+<div th:replace="footer :: footer"></div>
+<!--FOOTER END-->
+</body>
+</html>

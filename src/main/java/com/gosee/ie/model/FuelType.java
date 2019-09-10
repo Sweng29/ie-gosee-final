@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import java.util.Set;
 
 @Entity
 @Table(name = "FUEL_TYPE")
@@ -16,18 +17,18 @@ public class FuelType {
     private Long fuelTypeId;
     @NotEmpty(message = "Fuel type should not be empty.")
     private String fuelType;
-    @OneToOne(mappedBy = "fuelType")
+    @OneToMany(mappedBy = "fuelType")
     @JsonIgnore
-    private VehicleDetail vehicleDetail;
+    private Set<VehicleDetail> vehicleDetails;
     @Min(1)
     private Short isActive;
 
-    public VehicleDetail getVehicleDetail() {
-        return vehicleDetail;
+    public Set<VehicleDetail> getVehicleDetails() {
+        return vehicleDetails;
     }
 
-    public void setVehicleDetail(VehicleDetail vehicleDetail) {
-        this.vehicleDetail = vehicleDetail;
+    public void setVehicleDetails(Set<VehicleDetail> vehicleDetails) {
+        this.vehicleDetails = vehicleDetails;
     }
 
     public Long getFuelTypeId() {

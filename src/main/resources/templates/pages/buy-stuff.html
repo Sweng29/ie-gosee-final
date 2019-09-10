@@ -62,6 +62,12 @@
                              th:each="image,index : ${vehicle.images}">
                             <img alt="slider-photo" class="img-fluid" th:src="${'/resources/images/'+image.fileName}">
                         </div>
+                        <div class="slick-prev slick-arrow-buton custom-prev-arrow">
+                            <i class="fa fa-angle-left"></i>
+                        </div>
+                        <div class="slick-next slick-arrow-buton custom-next-arrow">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
                     </div>
                     <!-- main slider carousel nav controls -->
                     <!--<ul class="carousel-indicators car-properties list-inline nav nav-justified">
@@ -119,7 +125,6 @@
                             <h4 th:text="${'Engine Capacity : '+vehicle.engineCapacity}"></h4>
                             <h4 th:text="${'Color : '+vehicle.vehicleColorDTO.vehicleColor}"></h4>
                             <h4 th:text="${'Price : '+vehicle.price}"></h4>
-                            <!--<h3><a href="" ></a></h3>-->
                             <a class="btn btn-border btn-sm" role="button"
                                th:href="${'/vehicles/vehicle/'+vehicle.vehicleDetailId}">View Details</a>
                         </div>

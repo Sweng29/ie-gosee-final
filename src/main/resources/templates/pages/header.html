@@ -5,8 +5,8 @@
 <header class="main-header sticky-header header-with-top" th:fragment="header">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand company-logo" href="index.html">
-                <img alt="logo" th:src="@{/gosee/img/logos/logo.png}">
+            <a class="navbar-brand company-logo">
+                <img alt="gosee" th:src="${'/gosee/img/logos/logo.png'}">
             </a>
             <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
                     data-target="#navbar" data-toggle="collapse" type="button">
@@ -15,7 +15,7 @@
             <div class="navbar-collapse collapse w-100" id="navbar">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown active">
-                        <a class="nav-link" th:href="${'/home'}">
+                        <a class="nav-link" th:href="${'/homepage'}">
                             Home
                         </a>
                     </li>
@@ -25,7 +25,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="${'/sell'}">Sale Stuff</a>
+                        <a class="nav-link" th:href="${'/sell'}">Sell Stuff</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" th:href="${'/see'}">
@@ -38,16 +38,16 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="${'/whatsOn'}">What's On?</a>
+                        <a class="nav-link" th:href="${'/whats-on'}">What's On?</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="${'/howDoI'}">How do i?</a>
+                        <a class="nav-link" th:href="${'/how-do-i'}">How do i?</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link" th:href="${'/profile'}">Profile</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" th:href="${'/contactUs'}">Contact Us</a>
+                        <a class="nav-link" th:href="${'/contact'}">Contact Us</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link h-icon" th:href="${'/login'}">

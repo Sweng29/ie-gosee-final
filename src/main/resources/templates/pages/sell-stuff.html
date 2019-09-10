@@ -20,10 +20,10 @@
 <div class="sub-banner">
     <div class="container breadcrumb-area">
         <div class="breadcrumb-areas">
-            <h1>Buy Stuff</h1>
+            <h1>Sell Stuff</h1>
             <ul class="breadcrumbs">
                 <li><a href="/home">Home</a></li>
-                <li class="active">Buy Stuff</li>
+                <li class="active">Sell Stuff</li>
             </ul>
         </div>
     </div>
@@ -106,7 +106,7 @@
                         </div>
                     </div>-->
                     <div class="shop-box">
-                        <img alt="img" class="shop-theme img-fluid" src="img/shop/img.jpg">
+                        <img alt="img" class="shop-theme img-fluid" th:src="${'/gosee/img/shop/img.jpg'}">
                         <div class="shop-details">
                             <h4>$178,000</h4>
                             <h3><a href="shop-details.html">Brakes</a></h3>
@@ -119,6 +119,341 @@
     </div>
 </div>
 <!-- Featured car end -->
+
+
+<!-- MAIN CONTENT START -->
+<!-- Categories Start -->
+<!--<div class="our-team content-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-left">
+                <div class="form-group name text-center">
+                    <button type="submit" class="btn btn-outline-info btn-lg bomd">For
+                        Sell</button>
+                </div>
+                <div class="form-group name text-center">
+                    <button type="submit" class="btn btn-outline-warning btn-lg bomd">Wanted</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <jsp:include page="categories.jsp"></jsp:include>
+        </div>
+    </div>
+</div>-->
+<!-- Categories END -->
+
+<!-- Testimonial start -->
+<div class="testimonial bg-grea-3 content-area-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="heading-4">
+                    <h4 class="text-center">Advert Details</h4>
+                </div>
+            </div>
+            <!-- Contact info -->
+            <form action="#" enctype="multipart/form-data" method="GET">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="heading-4">
+                                    <h4 class="text-center">Enter Vehicle Registration</h4>
+                                    <h5 class="text-center">optional to auto fill your vehicle details</h5>
+                                    <div class="col-md-12 text-left">
+                                        <div class="form-group number">
+                                            <input class="form-control" name="number" placeholder="eg 0D12345"
+                                                   type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 text-left">
+                                <label for="title">Advert title</label>
+                                <div class="form-group name">
+                                    <input class="form-control" name="title" placeholder="Breif Description"
+                                           type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-6 text-left">
+                                <label for="price">Price</label>
+                                <div class="form-group name">
+                                    <select class="form-control name" id="price">
+                                        <option selected>Euro</option>
+                                        <option>Dollar</option>
+                                        <option>Pound</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="amount">Amount</label>
+                                <div class="form-group email">
+                                    <input class="form-control" name="amount" placeholder="1200" type="number">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="years">Years</label>
+                                <div class="form-group subject">
+                                    <input class="form-control" name="subject" placeholder="Years" type="number">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="make">Make</label>
+                                <div class="form-group subject">
+                                    <select class="form-control name" id="make">
+                                        <option selected>Toyota</option>
+                                        <option>Honda</option>
+                                        <option>Nissan</option>
+                                        <option>Mercidies</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="mileage">Mileage</label>
+                                <div class="form-group subject">
+                                    <select class="form-control name" id="mileage">
+                                        <option selected>Kilometers</option>
+                                        <option>Miles</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="engineType">Engine Type</label>
+                                <div class="form-group subject">
+                                    <select class="form-control name" id="engineType">
+                                        <option selected>CNG</option>
+                                        <option>Diesel</option>
+                                        <option>Hybrid</option>
+                                        <option>Petrol</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="mileage">Colours</label>
+                                <div class="form-group subject">
+                                    <select class="form-control name" id="color">
+                                        <option selected>Black</option>
+                                        <option>Blue</option>
+                                        <option>White</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="engineType">Transmission</label>
+                                <div class="form-group subject">
+                                    <select class="form-control name" id="transmission">
+                                        <option selected>Automatic</option>
+                                        <option>Manual</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="mileage">Doors</label>
+                                <div class="form-group subject">
+                                    <select class="form-control name" id="doors">
+                                        <option selected>2 Doors</option>
+                                        <option>3 Doors</option>
+                                        <option>4 Doors</option>
+                                        <option>5 Doors</option>
+                                        <option>Others</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="engineType">Country</label>
+                                <div class="form-group subject">
+                                    <select class="form-control name" id="country">
+                                        <option selected>Ireland</option>
+                                        <option>Pakistan</option>
+                                        <option>U.K</option>
+                                        <option>USA</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="engineType">Kilometers run</label>
+                                <div class="form-group subject">
+                                    <input class="form-control" name="subject" placeholder="Mileage" type="number">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="mileage">Address</label>
+                                <div class="form-group subject">
+                                    <textarea class="form-control" name="message"
+                                              placeholder="Address . . . ."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="mileage">Advert Description</label>
+                                <div class="form-group subject">
+                                    <textarea class="form-control" name="message"
+                                              placeholder="Write advert Description . . . ."></textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <br>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-2 imgUp">
+                                            <div class="imagePreview"></div>
+                                            <label class="btn btn-primary">Upload
+                                                <input class="uploadFile img"
+                                                       style="width: 0px;height: 0px;overflow: hidden;" type="file"
+                                                       value="Upload Photo">
+                                            </label>
+                                        </div><!-- col-2 -->
+                                        <i class="fa fa-plus imgAdd"></i>
+                                    </div><!-- row -->
+                                </div><!-- container -->
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="heading-4">
+                                    <h4 class="text-center">Contact Details</h4>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="engineType">Logged in as : <b id="username">Kashif Ali</b></label>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="send-btn text-right">
+                                    <button class="btn btn-md btn-info" type="reset">Use Login details <span
+                                            class="lnr lnr-chevron-right text-white"></span></button>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="engineType">Name</label>
+                                <div class="form-group subject">
+                                    <input class="form-control" name="subject" placeholder="Kashif Ali" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="mileage">Country</label>
+                                <div class="form-group subject">
+                                    <input class="form-control" name="subject" placeholder="Pakistan" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="mileage">Phone</label>
+                                <div class="form-group subject">
+                                    <input class="form-control" name="subject" placeholder="092-12345678" type="number">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="mileage">Nearest Town</label>
+                                <div class="form-group subject">
+                                    <input class="form-control" name="subject" placeholder="Karachi" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group subject">
+                                    <label>Allow contact by Phone </label>
+                                    <input class="form-control" name="subject" type="checkbox">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group subject">
+                                    <label for="mileage">Allow contact by Messenger</label>
+                                    <input class="form-control" name="subject" placeholder="Karachi" type="checkbox">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group subject">
+                                    <label for="mileage">Generate VAT Receipt</label>
+                                    <input class="form-control" name="subject" placeholder="Karachi" type="checkbox">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12" style="margin-top:20px">
+                                <div class="send-btn text-center">
+                                    <button class="btn btn-outline-danger bomd" type="reset">Clear</button>
+                                    <button class="btn btn-outline-primary bomd" type="submit">Next</button>
+                                </div>
+                            </div>
+
+
+                            <!--                            <div class="col-lg-12" style="margin-top:40px">
+                                                            <div class="heading-4">
+                                                                <h4 class="text-center">Adons</h4>
+                                                            </div>
+                                                        </div>-->
+
+                            <!--                            <div class="col-md-6">
+                                                            <label for="engineType"><b id="featureAdd">Feature add</b></label>
+                                                            <div class="form-group subject">
+                                                                Lorem ipsum dolor sit amet, non odio tincidunt ut ante, lorem a euismod suspendisse vel, sed quam nulla mauris iaculis.
+                                                            </div>
+                                                        </div>-->
+                            <!--                            <div class="col-xl-6 col-lg-6 col-md-12">
+                                                            <div class="pricing-1 ">
+                                                                <div class="title">Exclusive</div>
+                                                                <div class="content">
+                                                                    <ul>
+                                                                        <li>20 Projects</li>
+                                                                        <li>32GB Storage</li>
+                                                                        <li>50 Email Accounts</li>
+                                                                        <li>12GB Bandwidth</li>
+                                                                        <li>32GB Storage</li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="price-for-user">
+                                                                    <div class="price">
+                                                                        <sup>$</sup><span class="dolar">38</span><small
+                                                                            class="month">per month</small>
+                                                                    </div>
+                                                                </div>
+                                                                <button type="button" class="btn btn-outline-success bomd">Pay
+                                                                    now</button>
+                                                                <button type="button" class="btn btn-outline-info bomd">View
+                                                                    my Advert</button>
+                                                            </div>
+                                                        </div>-->
+                            <hr width="1000px">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- CONTACT DETAILS START -->
+
+    <!-- CONTACT DETAILS END -->
+</div>
+<!-- Testimonial end -->
+
+<!-- MAIN CONTENT END -->
+<!-- FOOTER START -->
+<!--<jsp:include page="footer.jsp"></jsp:include>-->
+<script>
+    $(".imgAdd").click(function () {
+        $(this).closest(".row").find('.imgAdd').before('<div class="col-sm-2 imgUp"><div class="imagePreview"></div><label class="btn btn-primary">Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width:0px;height:0px;overflow:hidden;"></label><i class="fa fa-times del"></i></div>');
+    });
+    $(document).on("click", "i.del", function () {
+        $(this).parent().remove();
+    });
+    $(function () {
+        $(document).on("change", ".uploadFile", function () {
+            var uploadFile = $(this);
+            var files = !!this.files ? this.files : [];
+            if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+
+            if (/^image/.test(files[0].type)) { // only image file
+                var reader = new FileReader(); // instance of the FileReader
+                reader.readAsDataURL(files[0]); // read the local file
+
+                reader.onloadend = function () { // set image data as background of div
+                    //alert(uploadFile.closest(".upimage").find('.imagePreview').length);
+                    uploadFile.closest(".imgUp").find('.imagePreview').css("background-image", "url(" + this.result + ")");
+                }
+            }
+
+        });
+    });
+</script>
+<!-- FOOTER END -->
 
 <!--FOOTER START-->
 <div th:replace="footer :: footer"></div>

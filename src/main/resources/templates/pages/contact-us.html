@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="utf-8">
+    <!--Include CSS and JS-->
+    <div th:replace="includes-head :: includes-head"></div>
+    <!--ENd of Includes-->
+</head>
+<body>
+<div class="page_loader"></div>
+
+<!-- Main header start -->
+<div th:replace="header :: header"></div>
+<!-- Main header end -->
+
+<!-- Sub banner start -->
+<div class="sub-banner">
+    <div class="container breadcrumb-area">
+        <div class="breadcrumb-areas">
+            <h1>Contact Us</h1>
+            <ul class="breadcrumbs">
+                <li><a href="/home">Home</a></li>
+                <li class="active">Contact Us</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Sub Banner end -->
+
+<!-- Contact 2 start -->
+<div class="contact-2 content-area-5">
+    <div class="container">
+        <!-- Main title -->
+        <div class="main-title text-center">
+            <h1>Contact Us</h1>
+            <p>Leave us your feedback and we will get back to you soon.</p>
+        </div>
+        <!-- Contact info -->
+        <form action="#" enctype="multipart/form-data" method="GET">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-md-6 text-left">
+                            <div class="form-group name">
+                                <input class="form-control" name="name" placeholder="Name" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group email">
+                                <input class="form-control" name="email" placeholder="Email" type="email">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group subject">
+                                <input class="form-control" name="subject" placeholder="Subject" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group number">
+                                <input class="form-control" name="phone" placeholder="Number" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group message">
+                                <textarea class="form-control" name="message" placeholder="Write message"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="send-btn text-center">
+                                <button class="btn btn-md button-theme" type="submit">Send Message</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Contact 2 end -->
+
+<!-- Google map start -->
+<div class="section">
+    <div class="map">
+        <div class="contact-map" id="map"></div>
+    </div>
+</div>
+<!-- Google map end -->
+
+<!--FOOTER START-->
+<div th:replace="footer :: footer"></div>
+<!--FOOTER END-->
+</body>
+</html>

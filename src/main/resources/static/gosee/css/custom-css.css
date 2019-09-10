@@ -11,3 +11,11 @@
     margin-left: 5px;
     width: 85%;
 }
+
+.custom-prev-arrow {
+    left: 0px;
+}
+
+.custom-next-arrow {
+    right: 0px;
+}
