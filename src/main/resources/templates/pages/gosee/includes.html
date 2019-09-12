@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="includes-head">
+    <meta charset="UTF-8">
+
+    <link href='http://maps.googleapis.com/' rel='dns-prefetch'/>
+    <link href='http://www.google.com/' rel='dns-prefetch'/>
+    <link href='http://s7.addthis.com/' rel='dns-prefetch'/>
+    <link href='http://fonts.googleapis.com/' rel='dns-prefetch'/>
+    <link href='http://s.w.org/' rel='dns-prefetch'/>
+    <link href="feed/index.html" rel="alternate" title="GoSee &raquo; Feed" type="application/rss+xml"/>
+    <link href="comments/feed/index.html" rel="alternate" title="GoSee &raquo; Comments Feed"
+          type="application/rss+xml"/>
+
+    <!-- External CSS libraries -->
+    <link rel="stylesheet" th:href="@{/final/wp-includes/css/dist/block-library/style.min2513.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/final/wp-content/plugins/woo-gutenberg-products-block/build/stylea1ec.css}"
+          type="text/css">
+    <link rel="stylesheet" th:href="@{/final/wp-content/plugins/contact-form-7/includes/css/styles58e0.css}"
+          type="text/css">
+
+    <link rel="stylesheet" th:href="@{/final/wp-content/plugins/featured-video-plus/styles/frontendb6db.css}"
+          type="text/css">
+    <link rel="stylesheet" th:href="@{/final/wp-content/plugins/simple-weather/css/simple-weatherf9b8.css}"
+          type="text/css">
+    <link rel="stylesheet" th:href="@{/final/wp-content/plugins/svg-support/css/svgs-attachment2513.css}"
+          type="text/css">
+    <link rel="stylesheet" th:href="@{/final/wp-content/plugins/woocommerce/assets/css/woocommerce-layout3088.css}"
+          type="text/css">
+    <link rel="stylesheet" th:href="@{/final/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen3088.css}"
+          type="text/css">
+    <link rel="stylesheet" th:href="@{/final/wp-content/plugins/woocommerce/assets/css/woocommerce3088.css}"
+          type="text/css">
+    <link rel="stylesheet" th:href="@{/final/wp-content/plugins/wp-pagenavi/pagenavi-css44fd.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/final/wp-content/themes/carspot/css/video_player2513.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/final/wp-content/themes/carspot-child/style2513.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/final/wp-content/themes/carspot/css/bootstrap2513.css}" type="text/css">
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" th:href="@{/final/wp-content/themes/carspot/css/style2513.css}" type="text/css">
+    <link id="stylesheet" rel="stylesheet" th:href="@{/final/wp-content/themes/carspot/css/datepicker.min2513.css}"
+          type="text/css">
+    <link rel="stylesheet" th:href="@{/final/wp-content/themes/carspot/css/datepicker.min2513.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/final/wp-content/themes/carspot/css/et-line-fonts2513}" type="text/css">
+    <link rel="stylesheet"
+          th:href="@{/final/wp-content/plugins/js_composer/assets/lib/bower/font-awesome/css/font-awesome.min24b2.css}"
+          type="text/css">
+    <link rel="stylesheet" th:href="@{/final/wp-content/themes/carspot/css/animate.min2513.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/final/wp-content/themes/carspot/css/flaticon2513.css}" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,600,600italic,700,700italic,900italic,900,300,300italic%7CPoppins:400,500,600&amp;subset=latin,latin-ext'
+          id='carspot-theme-slug-fonts-css' media='all' rel='stylesheet' type='text/css'/>
+
+    <link rel="stylesheet" th:href="@{/final/wp-content/themes/carspot/css/flaticon2513.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/final/wp-content/themes/carspot/css/flaticon2513.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/final/wp-content/themes/carspot/css/flaticon2513.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/final/wp-content/themes/carspot/css/flaticon2513.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/final/wp-content/themes/carspot/css/flaticon2513.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/final/wp-content/themes/carspot/css/flaticon2513.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/final/wp-content/themes/carspot/css/flaticon2513.css}" type="text/css">
+
+    <link id='flaticon2-css' media='all' rel='stylesheet'
+          th:href="@{/final/wp-content/themes/carspot/css/flaticon22513.css}" type='text/css'/>
+    <link id='custom-icons-css' media='all' rel='stylesheet'
+          th:href="@{/final/wp-content/themes/carspot/css/custom_icons2513.css}" type='text/css'/>
+    <link id='carspot-select2-css' media='all' rel='stylesheet'
+          th:href="@{/final/wp-content/themes/carspot/css/select2.min2513.css}" type='text/css'/>
+    <link id='nouislider-css' media='all' rel='stylesheet'
+          th:href="@{/final/wp-content/themes/carspot/css/nouislider.min2513.css}" type='text/css'/>
+    <link id='owl-carousel-css' media='all' rel='stylesheet'
+          th:href="@{/final/wp-content/themes/carspot/css/owl.carousel2513.css}" type='text/css'/>
+    <link id='owl-theme-css' media='all' rel='stylesheet'
+          th:href="@{/final/wp-content/themes/carspot/css/owl.theme2513.css}" type='text/css'/>
+    <link id='carspot-custom-css' media='all' rel='stylesheet'
+          th:href="@{/final/wp-content/themes/carspot/css/custom2513.css}" type='text/css'/>
+    <link id='toastr-css' media='all' rel='stylesheet'
+          th:href="@{/final/wp-content/themes/carspot/css/toastr.min2513.css}" type='text/css'/>
+    <link id='carspot-woo-css' media='all' rel='stylesheet'
+          th:href="@{/final/wp-content/themes/carspot/css/woocommerce2513.css}" type='text/css'/>
+    <link id='minimal-css' media='all' rel='stylesheet'
+          th:href="@{/final/wp-content/themes/carspot/skins/minimal/minimal2513.css}" type='text/css'/>
+    <link id='fancybox2-css' media='all' rel='stylesheet'
+          th:href="@{/final/wp-content/themes/carspot/css/jquery.fancybox.min2513.css}" type='text/css'/>
+    <link id='slider-css' media='all' rel='stylesheet' th:href="@{/final/wp-content/themes/carspot/css/slider2513.css}"
+          type='text/css'/>
+    <link id='carspot-menu-css' media='all' rel='stylesheet'
+          th:href="@{/final/wp-content/themes/carspot/css/carspot-menu2513.css}" type='text/css'/>
+    <link id='responsive-media-css' media='all' rel='stylesheet'
+          th:href="@{/final/wp-content/themes/carspot/css/responsive-media2513.css}" type='text/css'/>
+    <link id='defualt-color-css' media='all' rel='stylesheet'
+          th:href="@{/final/wp-content/themes/carspot/css/colors/defualt.css}" type='text/css'/>
+    <link id='post_hit_counter-widget-css' media='all' rel='stylesheet'
+          th:href="@{/final/wp-content/plugins/post-hit-counter/assets/css/widget9e1e.css}" type='text/css'/>
+    <link id='addthis_all_pages-css' media='all' rel='stylesheet'
+          th:href="@{/final/wp-content/plugins/addthis/frontend/build/addthis_wordpress_public.min2513.css}"
+          type='text/css'/>
+    <link id='addtoany-css' media='all' rel='stylesheet'
+          th:href="@{/final/wp-content/plugins/add-to-any/addtoany.min9be6.css}" type='text/css'/>
+    <link id='carspot-theme-custom-css' media='all' rel='stylesheet'
+          th:href="@{/final/wp-content/themes/carspot-child/custom2513.css}" type='text/css'/>
+    <link id='parent-style-css' media='all' rel='stylesheet'
+          th:href="@{/final/wp-content/themes/carspot/css/style2513.css}" type='text/css'/>
+    <link id='style-css' media='all' rel='stylesheet'
+          th:href="@{/final/wp-content/themes/carspot-child/css/style2513.css}" type='text/css'/>
+    <link id='owlcarousel-css' media='all' rel='stylesheet'
+          th:href="@{/final/wp-content/themes/carspot-child/css/owl.carousel.min2513.css}" type='text/css'/>
+    <link id='owl-css' media='all' rel='stylesheet'
+          th:href="@{/final/wp-content/themes/carspot-child/css/owl.theme.default.min2513.css}" type='text/css'/>
+    <link id='range-css' media='all' rel='stylesheet'
+          th:href="@{/final/wp-content/themes/carspot-child/css/range2513.css}" type='text/css'/>
+    <script th:src="@{/final/wp-includes/js/jquery/jquery4a5f.js}" type='text/javascript'></script>
+    <script th:src="@{/final/wp-includes/js/jquery/jquery-migrate.min330a.js}" type='text/javascript'></script>
+    <script th:src="@{/final/wp-content/plugins/add-to-any/addtoany.min4963.js}" type='text/javascript'></script>
+    <script th:src="@{/final/wp-content/plugins/featured-video-plus/js/jquery.fitvids.minb2da.js}"
+            type='text/javascript'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var fvpdata = {
+            "ajaxurl": "http:\/\/88.202.183.16\/~gosee\/wp-admin\/admin-ajax.php",
+            "nonce": "a0defde020",
+            "fitvids": "1",
+            "dynamic": "",
+            "overlay": "",
+            "opacity": "0.75",
+            "color": "b",
+            "width": "640"
+        };
+        /* ]]> */
+    </script>
+    <script th:src="@{/final/wp-content/plugins/featured-video-plus/js/frontend.minb6db.js}"
+            type='text/javascript'></script>
+    <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDrfwWBoS0jh0asDtWfuwyaKdC68sxfk5k&amp;libraries=places&amp;ver=5.2.3'
+            type='text/javascript'></script>
+    <script th:src="@{/final/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min44fd.js}"
+            type='text/javascript'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var wc_add_to_cart_params = {
+            "ajax_url": "\/~gosee\/wp-admin\/admin-ajax.php",
+            "wc_ajax_url": "\/~gosee\/?wc-ajax=%%endpoint%%",
+            "i18n_view_cart": "View cart",
+            "cart_url": "http:\/\/88.202.183.16\/~gosee\/cart\/",
+            "is_cart": "",
+            "cart_redirect_after_add": "no"
+        };
+        /* ]]> */
+    </script>
+    <script th:src="@{/final/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min3088.js}"
+            type='text/javascript'></script>
+    <script th:src="@{/final/wp-content/plugins/js_composer/assets/js/vendors/woocommerce-add-to-cart24b2.js}"
+            type='text/javascript'></script>
+    <script th:src="@{/final/wp-includes/js/imagesloaded.min55a0.js}" type='text/javascript'></script>
+    <script th:src="@{/final/wp-includes/js/masonry.mind617.js}" type='text/javascript'></script>
+    <script th:src="@{/final/wp-content/themes/carspot-child/js/script_ajax2513.js}" type='text/javascript'></script>
+    <!--[if lt IE 9]>
+    <script type='text/javascript' th:src="@{/final/wp-content/themes/carspot/js/html5shiv.min.js}"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script type='text/javascript' th:src="@{/final/wp-content/themes/carspot/js/respond.min.js}"></script>
+    <![endif]-->
+    <script src='../../s7.addthis.com/js/300/addthis_widget2513.js?ver=5.2.3#pubid=wp-eed20844ccce829dfa4ead4adda89355'
+            type='text/javascript'></script>
+    <link rel='https://api.w.org/' th:href="@{/final/wp-json/index.html}"/>
+    <link href="xmlrpc0db0.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+    <link rel="wlwmanifest" th:href="@{/final/wp-includes/wlwmanifest.xml}" type="application/wlwmanifest+xml"/>
+    <link href="index.html" rel="canonical"/>
+    <link href='index.html' rel='shortlink'/>
+    <link rel="alternate"
+          th:href="@{/final/wp-json/oembed/1.0/embed715c.json?url=http%3A%2F%2F88.202.183.16%2F%7Egosee%2F}"
+          type="application/json+oembed"/>
+    <link rel="alternate"
+          th:href="@{/final/wp-json/oembed/1.0/embed7003?url=http%3A%2F%2F88.202.183.16%2F%7Egosee%2F&amp;format=xml}"
+          type="text/xml+oembed"/>
+
+    <script data-cfasync="false">
+        window.a2a_config = window.a2a_config || {};
+        a2a_config.callbacks = [];
+        a2a_config.overlays = [];
+        a2a_config.templates = {};
+        (function (d, s, a, b) {
+            a = d.createElement(s);
+            b = d.getElementsByTagName(s)[0];
+            a.async = 1;
+            a.src = "../../static.addtoany.com/menu/page.js";
+            b.parentNode.insertBefore(a, b);
+        })(document, "script");
+    </script>
+    <noscript>
+        <style>.woocommerce-product-gallery {
+            opacity: 1 !important;
+        }</style>
+    </noscript>
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" type="text/css"
+          href="http://88.202.183.16/~gosee/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css"
+          media="screen"><![endif]-->
+    <script data-cfasync="false" type="text/javascript">if (window.addthis_product === undefined) {
+        window.addthis_product = "wpp";
+    }
+    if (window.wp_product_version === undefined) {
+        window.wp_product_version = "wpp-6.2.6";
+    }
+    if (window.addthis_share === undefined) {
+        window.addthis_share = {};
+    }
+    if (window.addthis_config === undefined) {
+        window.addthis_config = {"data_track_clickback": true, "ignore_server_config": true, "ui_atversion": 300};
+    }
+    if (window.addthis_layers === undefined) {
+        window.addthis_layers = {};
+    }
+    if (window.addthis_layers_tools === undefined) {
+        window.addthis_layers_tools = [];
+    } else {
+    }
+    if (window.addthis_plugin_info === undefined) {
+        window.addthis_plugin_info = {
+            "info_status": "enabled",
+            "cms_name": "WordPress",
+            "plugin_name": "Share Buttons by AddThis",
+            "plugin_version": "6.2.6",
+            "plugin_mode": "WordPress",
+            "anonymous_profile_id": "wp-eed20844ccce829dfa4ead4adda89355",
+            "page_info": {"template": "home", "post_type": ""},
+            "sharing_enabled_on_post_via_metabox": false
+        };
+    }
+    (function () {
+        var first_load_interval_id = setInterval(function () {
+            if (typeof window.addthis !== 'undefined') {
+                window.clearInterval(first_load_interval_id);
+                if (typeof window.addthis_layers !== 'undefined' && Object.getOwnPropertyNames(window.addthis_layers).length > 0) {
+                    window.addthis.layers(window.addthis_layers);
+                }
+                if (Array.isArray(window.addthis_layers_tools)) {
+                    for (i = 0; i < window.addthis_layers_tools.length; i++) {
+                        window.addthis.layers(window.addthis_layers_tools[i]);
+                    }
+                }
+            }
+        }, 1000)
+    }());
+    </script>
+
+    <style id="wp-custom-css" type="text/css">
+        .inner-page-container {
+            width: 100%;
+            float: left;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .heading {
+            margin: 20px 14px 20px 15px;
+            font-size: 30px;
+        }
+
+        .content_pera {
+            text-align: justify;
+        }        </style>
+    <noscript>
+        <style type="text/css"> .wpb_animate_when_almost_visible {
+            opacity: 1;
+        }</style>
+    </noscript>
+</head>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+    <metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+        <x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c138 79.159824, 2016/09/14-01:09:01        ">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+                <rdf:Description rdf:about=""/>
+            </rdf:RDF>
+        </x:xmpmeta>
+
+
+        <?xpacket end="w"?>
+    </metadata>
+    <defs>
+        <style>
+            .cls-1 {
+            fill: #242424;
+            fill-rule: evenodd;
+            }
+        </style>
+    </defs>
+    <path class="cls-1" d="M24.477,9.853l1.482,1.482L15.587,21.707,14.1,20.225Z"/>
+    <path id="Rectangle_1_copy" data-name="Rectangle 1 copy" class="cls-1"
+          d="M15.587,18.743L25.958,29.115,24.477,30.6,14.1,20.225Z"/>
+</svg>
